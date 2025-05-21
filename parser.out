@@ -1,0 +1,2397 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    AND
+    NOT
+    OR
+
+Grammar
+
+Rule 0     S' -> programa
+Rule 1     programa -> declaraciones
+Rule 2     declaraciones -> declaraciones declaracion
+Rule 3     declaraciones -> declaracion
+Rule 4     declaracion -> declaracion_variable
+Rule 5     declaracion -> asignacion
+Rule 6     declaracion -> estructura_control
+Rule 7     declaracion -> imprimir
+Rule 8     declaracion_variable -> tipo IDENTIFICADOR ASIG expresion PUNTOCOMA
+Rule 9     tipo -> TIPO_ENTERO
+Rule 10    tipo -> TIPO_DECIMAL
+Rule 11    tipo -> TIPO_CARACTER
+Rule 12    tipo -> TIPO_BOOLEANO
+Rule 13    asignacion -> IDENTIFICADOR ASIG expresion PUNTOCOMA
+Rule 14    estructura_control -> estructura_si
+Rule 15    estructura_control -> estructura_mientras
+Rule 16    estructura_control -> estructura_para
+Rule 17    estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+Rule 18    estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+Rule 19    estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+Rule 20    estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+Rule 21    estructura_mientras -> MIENTRAS PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+Rule 22    estructura_para -> PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER
+Rule 23    inicializacion_para -> tipo IDENTIFICADOR ASIG expresion
+Rule 24    inicializacion_para -> IDENTIFICADOR ASIG expresion
+Rule 25    incremento_para -> IDENTIFICADOR ASIG IDENTIFICADOR SUMA NUMERO
+Rule 26    incremento_para -> IDENTIFICADOR ASIG IDENTIFICADOR RESTA NUMERO
+Rule 27    incremento_para -> IDENTIFICADOR SUMA SUMA
+Rule 28    incremento_para -> IDENTIFICADOR RESTA RESTA
+Rule 29    condicion -> expresion IGUAL expresion
+Rule 30    condicion -> expresion DIFERENTE expresion
+Rule 31    condicion -> expresion MENOR expresion
+Rule 32    condicion -> expresion MAYOR expresion
+Rule 33    condicion -> expresion MENORIGUAL expresion
+Rule 34    condicion -> expresion MAYORIGUAL expresion
+Rule 35    expresion -> expresion SUMA termino
+Rule 36    expresion -> expresion RESTA termino
+Rule 37    expresion -> expresion MULT termino
+Rule 38    expresion -> expresion DIV termino
+Rule 39    expresion -> termino
+Rule 40    termino -> IDENTIFICADOR
+Rule 41    termino -> NUMERO
+Rule 42    termino -> DECIMAL
+Rule 43    termino -> CARACTER
+Rule 44    termino -> TRUE
+Rule 45    termino -> FALSE
+Rule 46    termino -> PARIZQ expresion PARDER
+Rule 47    imprimir -> PRINT PARIZQ expresion PARDER PUNTOCOMA
+
+Terminals, with rules where they appear
+
+AND                  : 
+ASIG                 : 8 13 23 24 25 26
+CARACTER             : 43
+DECIMAL              : 42
+DIFERENTE            : 30
+DIV                  : 38
+EOC                  : 19 20
+FALSE                : 45
+IDENTIFICADOR        : 8 13 23 24 25 25 26 26 27 28 40
+IGUAL                : 29
+LLAVEDER             : 17 18 18 19 19 19 20 20 21 22
+LLAVEIZQ             : 17 18 18 19 19 19 20 20 21 22
+MAYOR                : 32
+MAYORIGUAL           : 34
+MENOR                : 31
+MENORIGUAL           : 33
+MIENTRAS             : 21
+MULT                 : 37
+NOT                  : 
+NUMERO               : 25 26 41
+OR                   : 
+PARA                 : 22
+PARDER               : 17 18 18 19 19 20 21 22 46 47
+PARIZQ               : 17 18 18 19 19 20 21 22 46 47
+PRINT                : 47
+PUNTOCOMA            : 8 13 22 22 47
+RESTA                : 26 28 28 36
+SI                   : 17 18 19 20
+SINO                 : 18 19
+SUMA                 : 25 27 27 35
+TIPO_BOOLEANO        : 12
+TIPO_CARACTER        : 11
+TIPO_DECIMAL         : 10
+TIPO_ENTERO          : 9
+TRUE                 : 44
+error                : 
+
+Nonterminals, with rules where they appear
+
+asignacion           : 5
+condicion            : 17 18 18 19 19 20 21 22
+declaracion          : 2 3
+declaracion_variable : 4
+declaraciones        : 1 2 17 18 18 19 19 19 20 20 21 22
+estructura_control   : 6
+estructura_mientras  : 15
+estructura_para      : 16
+estructura_si        : 14
+expresion            : 8 13 23 24 29 29 30 30 31 31 32 32 33 33 34 34 35 36 37 38 46 47
+imprimir             : 7
+incremento_para      : 22
+inicializacion_para  : 22
+programa             : 0
+termino              : 35 36 37 38 39
+tipo                 : 8 23
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . programa
+    (1) programa -> . declaraciones
+    (2) declaraciones -> . declaraciones declaracion
+    (3) declaraciones -> . declaracion
+    (4) declaracion -> . declaracion_variable
+    (5) declaracion -> . asignacion
+    (6) declaracion -> . estructura_control
+    (7) declaracion -> . imprimir
+    (8) declaracion_variable -> . tipo IDENTIFICADOR ASIG expresion PUNTOCOMA
+    (13) asignacion -> . IDENTIFICADOR ASIG expresion PUNTOCOMA
+    (14) estructura_control -> . estructura_si
+    (15) estructura_control -> . estructura_mientras
+    (16) estructura_control -> . estructura_para
+    (47) imprimir -> . PRINT PARIZQ expresion PARDER PUNTOCOMA
+    (9) tipo -> . TIPO_ENTERO
+    (10) tipo -> . TIPO_DECIMAL
+    (11) tipo -> . TIPO_CARACTER
+    (12) tipo -> . TIPO_BOOLEANO
+    (17) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (18) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (19) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (20) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (21) estructura_mientras -> . MIENTRAS PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (22) estructura_para -> . PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER
+
+    IDENTIFICADOR   shift and go to state 9
+    PRINT           shift and go to state 13
+    TIPO_ENTERO     shift and go to state 14
+    TIPO_DECIMAL    shift and go to state 15
+    TIPO_CARACTER   shift and go to state 16
+    TIPO_BOOLEANO   shift and go to state 17
+    SI              shift and go to state 18
+    MIENTRAS        shift and go to state 19
+    PARA            shift and go to state 20
+
+    programa                       shift and go to state 1
+    declaraciones                  shift and go to state 2
+    declaracion                    shift and go to state 3
+    declaracion_variable           shift and go to state 4
+    asignacion                     shift and go to state 5
+    estructura_control             shift and go to state 6
+    imprimir                       shift and go to state 7
+    tipo                           shift and go to state 8
+    estructura_si                  shift and go to state 10
+    estructura_mientras            shift and go to state 11
+    estructura_para                shift and go to state 12
+
+state 1
+
+    (0) S' -> programa .
+
+
+
+state 2
+
+    (1) programa -> declaraciones .
+    (2) declaraciones -> declaraciones . declaracion
+    (4) declaracion -> . declaracion_variable
+    (5) declaracion -> . asignacion
+    (6) declaracion -> . estructura_control
+    (7) declaracion -> . imprimir
+    (8) declaracion_variable -> . tipo IDENTIFICADOR ASIG expresion PUNTOCOMA
+    (13) asignacion -> . IDENTIFICADOR ASIG expresion PUNTOCOMA
+    (14) estructura_control -> . estructura_si
+    (15) estructura_control -> . estructura_mientras
+    (16) estructura_control -> . estructura_para
+    (47) imprimir -> . PRINT PARIZQ expresion PARDER PUNTOCOMA
+    (9) tipo -> . TIPO_ENTERO
+    (10) tipo -> . TIPO_DECIMAL
+    (11) tipo -> . TIPO_CARACTER
+    (12) tipo -> . TIPO_BOOLEANO
+    (17) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (18) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (19) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (20) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (21) estructura_mientras -> . MIENTRAS PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (22) estructura_para -> . PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER
+
+    $end            reduce using rule 1 (programa -> declaraciones .)
+    IDENTIFICADOR   shift and go to state 9
+    PRINT           shift and go to state 13
+    TIPO_ENTERO     shift and go to state 14
+    TIPO_DECIMAL    shift and go to state 15
+    TIPO_CARACTER   shift and go to state 16
+    TIPO_BOOLEANO   shift and go to state 17
+    SI              shift and go to state 18
+    MIENTRAS        shift and go to state 19
+    PARA            shift and go to state 20
+
+    declaracion                    shift and go to state 21
+    declaracion_variable           shift and go to state 4
+    asignacion                     shift and go to state 5
+    estructura_control             shift and go to state 6
+    imprimir                       shift and go to state 7
+    tipo                           shift and go to state 8
+    estructura_si                  shift and go to state 10
+    estructura_mientras            shift and go to state 11
+    estructura_para                shift and go to state 12
+
+state 3
+
+    (3) declaraciones -> declaracion .
+
+    IDENTIFICADOR   reduce using rule 3 (declaraciones -> declaracion .)
+    PRINT           reduce using rule 3 (declaraciones -> declaracion .)
+    TIPO_ENTERO     reduce using rule 3 (declaraciones -> declaracion .)
+    TIPO_DECIMAL    reduce using rule 3 (declaraciones -> declaracion .)
+    TIPO_CARACTER   reduce using rule 3 (declaraciones -> declaracion .)
+    TIPO_BOOLEANO   reduce using rule 3 (declaraciones -> declaracion .)
+    SI              reduce using rule 3 (declaraciones -> declaracion .)
+    MIENTRAS        reduce using rule 3 (declaraciones -> declaracion .)
+    PARA            reduce using rule 3 (declaraciones -> declaracion .)
+    $end            reduce using rule 3 (declaraciones -> declaracion .)
+    LLAVEDER        reduce using rule 3 (declaraciones -> declaracion .)
+
+
+state 4
+
+    (4) declaracion -> declaracion_variable .
+
+    IDENTIFICADOR   reduce using rule 4 (declaracion -> declaracion_variable .)
+    PRINT           reduce using rule 4 (declaracion -> declaracion_variable .)
+    TIPO_ENTERO     reduce using rule 4 (declaracion -> declaracion_variable .)
+    TIPO_DECIMAL    reduce using rule 4 (declaracion -> declaracion_variable .)
+    TIPO_CARACTER   reduce using rule 4 (declaracion -> declaracion_variable .)
+    TIPO_BOOLEANO   reduce using rule 4 (declaracion -> declaracion_variable .)
+    SI              reduce using rule 4 (declaracion -> declaracion_variable .)
+    MIENTRAS        reduce using rule 4 (declaracion -> declaracion_variable .)
+    PARA            reduce using rule 4 (declaracion -> declaracion_variable .)
+    $end            reduce using rule 4 (declaracion -> declaracion_variable .)
+    LLAVEDER        reduce using rule 4 (declaracion -> declaracion_variable .)
+
+
+state 5
+
+    (5) declaracion -> asignacion .
+
+    IDENTIFICADOR   reduce using rule 5 (declaracion -> asignacion .)
+    PRINT           reduce using rule 5 (declaracion -> asignacion .)
+    TIPO_ENTERO     reduce using rule 5 (declaracion -> asignacion .)
+    TIPO_DECIMAL    reduce using rule 5 (declaracion -> asignacion .)
+    TIPO_CARACTER   reduce using rule 5 (declaracion -> asignacion .)
+    TIPO_BOOLEANO   reduce using rule 5 (declaracion -> asignacion .)
+    SI              reduce using rule 5 (declaracion -> asignacion .)
+    MIENTRAS        reduce using rule 5 (declaracion -> asignacion .)
+    PARA            reduce using rule 5 (declaracion -> asignacion .)
+    $end            reduce using rule 5 (declaracion -> asignacion .)
+    LLAVEDER        reduce using rule 5 (declaracion -> asignacion .)
+
+
+state 6
+
+    (6) declaracion -> estructura_control .
+
+    IDENTIFICADOR   reduce using rule 6 (declaracion -> estructura_control .)
+    PRINT           reduce using rule 6 (declaracion -> estructura_control .)
+    TIPO_ENTERO     reduce using rule 6 (declaracion -> estructura_control .)
+    TIPO_DECIMAL    reduce using rule 6 (declaracion -> estructura_control .)
+    TIPO_CARACTER   reduce using rule 6 (declaracion -> estructura_control .)
+    TIPO_BOOLEANO   reduce using rule 6 (declaracion -> estructura_control .)
+    SI              reduce using rule 6 (declaracion -> estructura_control .)
+    MIENTRAS        reduce using rule 6 (declaracion -> estructura_control .)
+    PARA            reduce using rule 6 (declaracion -> estructura_control .)
+    $end            reduce using rule 6 (declaracion -> estructura_control .)
+    LLAVEDER        reduce using rule 6 (declaracion -> estructura_control .)
+
+
+state 7
+
+    (7) declaracion -> imprimir .
+
+    IDENTIFICADOR   reduce using rule 7 (declaracion -> imprimir .)
+    PRINT           reduce using rule 7 (declaracion -> imprimir .)
+    TIPO_ENTERO     reduce using rule 7 (declaracion -> imprimir .)
+    TIPO_DECIMAL    reduce using rule 7 (declaracion -> imprimir .)
+    TIPO_CARACTER   reduce using rule 7 (declaracion -> imprimir .)
+    TIPO_BOOLEANO   reduce using rule 7 (declaracion -> imprimir .)
+    SI              reduce using rule 7 (declaracion -> imprimir .)
+    MIENTRAS        reduce using rule 7 (declaracion -> imprimir .)
+    PARA            reduce using rule 7 (declaracion -> imprimir .)
+    $end            reduce using rule 7 (declaracion -> imprimir .)
+    LLAVEDER        reduce using rule 7 (declaracion -> imprimir .)
+
+
+state 8
+
+    (8) declaracion_variable -> tipo . IDENTIFICADOR ASIG expresion PUNTOCOMA
+
+    IDENTIFICADOR   shift and go to state 22
+
+
+state 9
+
+    (13) asignacion -> IDENTIFICADOR . ASIG expresion PUNTOCOMA
+
+    ASIG            shift and go to state 23
+
+
+state 10
+
+    (14) estructura_control -> estructura_si .
+
+    IDENTIFICADOR   reduce using rule 14 (estructura_control -> estructura_si .)
+    PRINT           reduce using rule 14 (estructura_control -> estructura_si .)
+    TIPO_ENTERO     reduce using rule 14 (estructura_control -> estructura_si .)
+    TIPO_DECIMAL    reduce using rule 14 (estructura_control -> estructura_si .)
+    TIPO_CARACTER   reduce using rule 14 (estructura_control -> estructura_si .)
+    TIPO_BOOLEANO   reduce using rule 14 (estructura_control -> estructura_si .)
+    SI              reduce using rule 14 (estructura_control -> estructura_si .)
+    MIENTRAS        reduce using rule 14 (estructura_control -> estructura_si .)
+    PARA            reduce using rule 14 (estructura_control -> estructura_si .)
+    $end            reduce using rule 14 (estructura_control -> estructura_si .)
+    LLAVEDER        reduce using rule 14 (estructura_control -> estructura_si .)
+
+
+state 11
+
+    (15) estructura_control -> estructura_mientras .
+
+    IDENTIFICADOR   reduce using rule 15 (estructura_control -> estructura_mientras .)
+    PRINT           reduce using rule 15 (estructura_control -> estructura_mientras .)
+    TIPO_ENTERO     reduce using rule 15 (estructura_control -> estructura_mientras .)
+    TIPO_DECIMAL    reduce using rule 15 (estructura_control -> estructura_mientras .)
+    TIPO_CARACTER   reduce using rule 15 (estructura_control -> estructura_mientras .)
+    TIPO_BOOLEANO   reduce using rule 15 (estructura_control -> estructura_mientras .)
+    SI              reduce using rule 15 (estructura_control -> estructura_mientras .)
+    MIENTRAS        reduce using rule 15 (estructura_control -> estructura_mientras .)
+    PARA            reduce using rule 15 (estructura_control -> estructura_mientras .)
+    $end            reduce using rule 15 (estructura_control -> estructura_mientras .)
+    LLAVEDER        reduce using rule 15 (estructura_control -> estructura_mientras .)
+
+
+state 12
+
+    (16) estructura_control -> estructura_para .
+
+    IDENTIFICADOR   reduce using rule 16 (estructura_control -> estructura_para .)
+    PRINT           reduce using rule 16 (estructura_control -> estructura_para .)
+    TIPO_ENTERO     reduce using rule 16 (estructura_control -> estructura_para .)
+    TIPO_DECIMAL    reduce using rule 16 (estructura_control -> estructura_para .)
+    TIPO_CARACTER   reduce using rule 16 (estructura_control -> estructura_para .)
+    TIPO_BOOLEANO   reduce using rule 16 (estructura_control -> estructura_para .)
+    SI              reduce using rule 16 (estructura_control -> estructura_para .)
+    MIENTRAS        reduce using rule 16 (estructura_control -> estructura_para .)
+    PARA            reduce using rule 16 (estructura_control -> estructura_para .)
+    $end            reduce using rule 16 (estructura_control -> estructura_para .)
+    LLAVEDER        reduce using rule 16 (estructura_control -> estructura_para .)
+
+
+state 13
+
+    (47) imprimir -> PRINT . PARIZQ expresion PARDER PUNTOCOMA
+
+    PARIZQ          shift and go to state 24
+
+
+state 14
+
+    (9) tipo -> TIPO_ENTERO .
+
+    IDENTIFICADOR   reduce using rule 9 (tipo -> TIPO_ENTERO .)
+
+
+state 15
+
+    (10) tipo -> TIPO_DECIMAL .
+
+    IDENTIFICADOR   reduce using rule 10 (tipo -> TIPO_DECIMAL .)
+
+
+state 16
+
+    (11) tipo -> TIPO_CARACTER .
+
+    IDENTIFICADOR   reduce using rule 11 (tipo -> TIPO_CARACTER .)
+
+
+state 17
+
+    (12) tipo -> TIPO_BOOLEANO .
+
+    IDENTIFICADOR   reduce using rule 12 (tipo -> TIPO_BOOLEANO .)
+
+
+state 18
+
+    (17) estructura_si -> SI . PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (18) estructura_si -> SI . PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (19) estructura_si -> SI . PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (20) estructura_si -> SI . PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+
+    PARIZQ          shift and go to state 25
+
+
+state 19
+
+    (21) estructura_mientras -> MIENTRAS . PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+
+    PARIZQ          shift and go to state 26
+
+
+state 20
+
+    (22) estructura_para -> PARA . PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER
+
+    PARIZQ          shift and go to state 27
+
+
+state 21
+
+    (2) declaraciones -> declaraciones declaracion .
+
+    IDENTIFICADOR   reduce using rule 2 (declaraciones -> declaraciones declaracion .)
+    PRINT           reduce using rule 2 (declaraciones -> declaraciones declaracion .)
+    TIPO_ENTERO     reduce using rule 2 (declaraciones -> declaraciones declaracion .)
+    TIPO_DECIMAL    reduce using rule 2 (declaraciones -> declaraciones declaracion .)
+    TIPO_CARACTER   reduce using rule 2 (declaraciones -> declaraciones declaracion .)
+    TIPO_BOOLEANO   reduce using rule 2 (declaraciones -> declaraciones declaracion .)
+    SI              reduce using rule 2 (declaraciones -> declaraciones declaracion .)
+    MIENTRAS        reduce using rule 2 (declaraciones -> declaraciones declaracion .)
+    PARA            reduce using rule 2 (declaraciones -> declaraciones declaracion .)
+    $end            reduce using rule 2 (declaraciones -> declaraciones declaracion .)
+    LLAVEDER        reduce using rule 2 (declaraciones -> declaraciones declaracion .)
+
+
+state 22
+
+    (8) declaracion_variable -> tipo IDENTIFICADOR . ASIG expresion PUNTOCOMA
+
+    ASIG            shift and go to state 28
+
+
+state 23
+
+    (13) asignacion -> IDENTIFICADOR ASIG . expresion PUNTOCOMA
+    (35) expresion -> . expresion SUMA termino
+    (36) expresion -> . expresion RESTA termino
+    (37) expresion -> . expresion MULT termino
+    (38) expresion -> . expresion DIV termino
+    (39) expresion -> . termino
+    (40) termino -> . IDENTIFICADOR
+    (41) termino -> . NUMERO
+    (42) termino -> . DECIMAL
+    (43) termino -> . CARACTER
+    (44) termino -> . TRUE
+    (45) termino -> . FALSE
+    (46) termino -> . PARIZQ expresion PARDER
+
+    IDENTIFICADOR   shift and go to state 29
+    NUMERO          shift and go to state 32
+    DECIMAL         shift and go to state 33
+    CARACTER        shift and go to state 34
+    TRUE            shift and go to state 35
+    FALSE           shift and go to state 36
+    PARIZQ          shift and go to state 37
+
+    expresion                      shift and go to state 30
+    termino                        shift and go to state 31
+
+state 24
+
+    (47) imprimir -> PRINT PARIZQ . expresion PARDER PUNTOCOMA
+    (35) expresion -> . expresion SUMA termino
+    (36) expresion -> . expresion RESTA termino
+    (37) expresion -> . expresion MULT termino
+    (38) expresion -> . expresion DIV termino
+    (39) expresion -> . termino
+    (40) termino -> . IDENTIFICADOR
+    (41) termino -> . NUMERO
+    (42) termino -> . DECIMAL
+    (43) termino -> . CARACTER
+    (44) termino -> . TRUE
+    (45) termino -> . FALSE
+    (46) termino -> . PARIZQ expresion PARDER
+
+    IDENTIFICADOR   shift and go to state 29
+    NUMERO          shift and go to state 32
+    DECIMAL         shift and go to state 33
+    CARACTER        shift and go to state 34
+    TRUE            shift and go to state 35
+    FALSE           shift and go to state 36
+    PARIZQ          shift and go to state 37
+
+    expresion                      shift and go to state 38
+    termino                        shift and go to state 31
+
+state 25
+
+    (17) estructura_si -> SI PARIZQ . condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (18) estructura_si -> SI PARIZQ . condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (19) estructura_si -> SI PARIZQ . condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (20) estructura_si -> SI PARIZQ . condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (29) condicion -> . expresion IGUAL expresion
+    (30) condicion -> . expresion DIFERENTE expresion
+    (31) condicion -> . expresion MENOR expresion
+    (32) condicion -> . expresion MAYOR expresion
+    (33) condicion -> . expresion MENORIGUAL expresion
+    (34) condicion -> . expresion MAYORIGUAL expresion
+    (35) expresion -> . expresion SUMA termino
+    (36) expresion -> . expresion RESTA termino
+    (37) expresion -> . expresion MULT termino
+    (38) expresion -> . expresion DIV termino
+    (39) expresion -> . termino
+    (40) termino -> . IDENTIFICADOR
+    (41) termino -> . NUMERO
+    (42) termino -> . DECIMAL
+    (43) termino -> . CARACTER
+    (44) termino -> . TRUE
+    (45) termino -> . FALSE
+    (46) termino -> . PARIZQ expresion PARDER
+
+    IDENTIFICADOR   shift and go to state 29
+    NUMERO          shift and go to state 32
+    DECIMAL         shift and go to state 33
+    CARACTER        shift and go to state 34
+    TRUE            shift and go to state 35
+    FALSE           shift and go to state 36
+    PARIZQ          shift and go to state 37
+
+    condicion                      shift and go to state 39
+    expresion                      shift and go to state 40
+    termino                        shift and go to state 31
+
+state 26
+
+    (21) estructura_mientras -> MIENTRAS PARIZQ . condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (29) condicion -> . expresion IGUAL expresion
+    (30) condicion -> . expresion DIFERENTE expresion
+    (31) condicion -> . expresion MENOR expresion
+    (32) condicion -> . expresion MAYOR expresion
+    (33) condicion -> . expresion MENORIGUAL expresion
+    (34) condicion -> . expresion MAYORIGUAL expresion
+    (35) expresion -> . expresion SUMA termino
+    (36) expresion -> . expresion RESTA termino
+    (37) expresion -> . expresion MULT termino
+    (38) expresion -> . expresion DIV termino
+    (39) expresion -> . termino
+    (40) termino -> . IDENTIFICADOR
+    (41) termino -> . NUMERO
+    (42) termino -> . DECIMAL
+    (43) termino -> . CARACTER
+    (44) termino -> . TRUE
+    (45) termino -> . FALSE
+    (46) termino -> . PARIZQ expresion PARDER
+
+    IDENTIFICADOR   shift and go to state 29
+    NUMERO          shift and go to state 32
+    DECIMAL         shift and go to state 33
+    CARACTER        shift and go to state 34
+    TRUE            shift and go to state 35
+    FALSE           shift and go to state 36
+    PARIZQ          shift and go to state 37
+
+    condicion                      shift and go to state 41
+    expresion                      shift and go to state 40
+    termino                        shift and go to state 31
+
+state 27
+
+    (22) estructura_para -> PARA PARIZQ . inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER
+    (23) inicializacion_para -> . tipo IDENTIFICADOR ASIG expresion
+    (24) inicializacion_para -> . IDENTIFICADOR ASIG expresion
+    (9) tipo -> . TIPO_ENTERO
+    (10) tipo -> . TIPO_DECIMAL
+    (11) tipo -> . TIPO_CARACTER
+    (12) tipo -> . TIPO_BOOLEANO
+
+    IDENTIFICADOR   shift and go to state 44
+    TIPO_ENTERO     shift and go to state 14
+    TIPO_DECIMAL    shift and go to state 15
+    TIPO_CARACTER   shift and go to state 16
+    TIPO_BOOLEANO   shift and go to state 17
+
+    inicializacion_para            shift and go to state 42
+    tipo                           shift and go to state 43
+
+state 28
+
+    (8) declaracion_variable -> tipo IDENTIFICADOR ASIG . expresion PUNTOCOMA
+    (35) expresion -> . expresion SUMA termino
+    (36) expresion -> . expresion RESTA termino
+    (37) expresion -> . expresion MULT termino
+    (38) expresion -> . expresion DIV termino
+    (39) expresion -> . termino
+    (40) termino -> . IDENTIFICADOR
+    (41) termino -> . NUMERO
+    (42) termino -> . DECIMAL
+    (43) termino -> . CARACTER
+    (44) termino -> . TRUE
+    (45) termino -> . FALSE
+    (46) termino -> . PARIZQ expresion PARDER
+
+    IDENTIFICADOR   shift and go to state 29
+    NUMERO          shift and go to state 32
+    DECIMAL         shift and go to state 33
+    CARACTER        shift and go to state 34
+    TRUE            shift and go to state 35
+    FALSE           shift and go to state 36
+    PARIZQ          shift and go to state 37
+
+    expresion                      shift and go to state 45
+    termino                        shift and go to state 31
+
+state 29
+
+    (40) termino -> IDENTIFICADOR .
+
+    PUNTOCOMA       reduce using rule 40 (termino -> IDENTIFICADOR .)
+    SUMA            reduce using rule 40 (termino -> IDENTIFICADOR .)
+    RESTA           reduce using rule 40 (termino -> IDENTIFICADOR .)
+    MULT            reduce using rule 40 (termino -> IDENTIFICADOR .)
+    DIV             reduce using rule 40 (termino -> IDENTIFICADOR .)
+    PARDER          reduce using rule 40 (termino -> IDENTIFICADOR .)
+    IGUAL           reduce using rule 40 (termino -> IDENTIFICADOR .)
+    DIFERENTE       reduce using rule 40 (termino -> IDENTIFICADOR .)
+    MENOR           reduce using rule 40 (termino -> IDENTIFICADOR .)
+    MAYOR           reduce using rule 40 (termino -> IDENTIFICADOR .)
+    MENORIGUAL      reduce using rule 40 (termino -> IDENTIFICADOR .)
+    MAYORIGUAL      reduce using rule 40 (termino -> IDENTIFICADOR .)
+
+
+state 30
+
+    (13) asignacion -> IDENTIFICADOR ASIG expresion . PUNTOCOMA
+    (35) expresion -> expresion . SUMA termino
+    (36) expresion -> expresion . RESTA termino
+    (37) expresion -> expresion . MULT termino
+    (38) expresion -> expresion . DIV termino
+
+    PUNTOCOMA       shift and go to state 46
+    SUMA            shift and go to state 47
+    RESTA           shift and go to state 48
+    MULT            shift and go to state 49
+    DIV             shift and go to state 50
+
+
+state 31
+
+    (39) expresion -> termino .
+
+    PUNTOCOMA       reduce using rule 39 (expresion -> termino .)
+    SUMA            reduce using rule 39 (expresion -> termino .)
+    RESTA           reduce using rule 39 (expresion -> termino .)
+    MULT            reduce using rule 39 (expresion -> termino .)
+    DIV             reduce using rule 39 (expresion -> termino .)
+    PARDER          reduce using rule 39 (expresion -> termino .)
+    IGUAL           reduce using rule 39 (expresion -> termino .)
+    DIFERENTE       reduce using rule 39 (expresion -> termino .)
+    MENOR           reduce using rule 39 (expresion -> termino .)
+    MAYOR           reduce using rule 39 (expresion -> termino .)
+    MENORIGUAL      reduce using rule 39 (expresion -> termino .)
+    MAYORIGUAL      reduce using rule 39 (expresion -> termino .)
+
+
+state 32
+
+    (41) termino -> NUMERO .
+
+    PUNTOCOMA       reduce using rule 41 (termino -> NUMERO .)
+    SUMA            reduce using rule 41 (termino -> NUMERO .)
+    RESTA           reduce using rule 41 (termino -> NUMERO .)
+    MULT            reduce using rule 41 (termino -> NUMERO .)
+    DIV             reduce using rule 41 (termino -> NUMERO .)
+    PARDER          reduce using rule 41 (termino -> NUMERO .)
+    IGUAL           reduce using rule 41 (termino -> NUMERO .)
+    DIFERENTE       reduce using rule 41 (termino -> NUMERO .)
+    MENOR           reduce using rule 41 (termino -> NUMERO .)
+    MAYOR           reduce using rule 41 (termino -> NUMERO .)
+    MENORIGUAL      reduce using rule 41 (termino -> NUMERO .)
+    MAYORIGUAL      reduce using rule 41 (termino -> NUMERO .)
+
+
+state 33
+
+    (42) termino -> DECIMAL .
+
+    PUNTOCOMA       reduce using rule 42 (termino -> DECIMAL .)
+    SUMA            reduce using rule 42 (termino -> DECIMAL .)
+    RESTA           reduce using rule 42 (termino -> DECIMAL .)
+    MULT            reduce using rule 42 (termino -> DECIMAL .)
+    DIV             reduce using rule 42 (termino -> DECIMAL .)
+    PARDER          reduce using rule 42 (termino -> DECIMAL .)
+    IGUAL           reduce using rule 42 (termino -> DECIMAL .)
+    DIFERENTE       reduce using rule 42 (termino -> DECIMAL .)
+    MENOR           reduce using rule 42 (termino -> DECIMAL .)
+    MAYOR           reduce using rule 42 (termino -> DECIMAL .)
+    MENORIGUAL      reduce using rule 42 (termino -> DECIMAL .)
+    MAYORIGUAL      reduce using rule 42 (termino -> DECIMAL .)
+
+
+state 34
+
+    (43) termino -> CARACTER .
+
+    PUNTOCOMA       reduce using rule 43 (termino -> CARACTER .)
+    SUMA            reduce using rule 43 (termino -> CARACTER .)
+    RESTA           reduce using rule 43 (termino -> CARACTER .)
+    MULT            reduce using rule 43 (termino -> CARACTER .)
+    DIV             reduce using rule 43 (termino -> CARACTER .)
+    PARDER          reduce using rule 43 (termino -> CARACTER .)
+    IGUAL           reduce using rule 43 (termino -> CARACTER .)
+    DIFERENTE       reduce using rule 43 (termino -> CARACTER .)
+    MENOR           reduce using rule 43 (termino -> CARACTER .)
+    MAYOR           reduce using rule 43 (termino -> CARACTER .)
+    MENORIGUAL      reduce using rule 43 (termino -> CARACTER .)
+    MAYORIGUAL      reduce using rule 43 (termino -> CARACTER .)
+
+
+state 35
+
+    (44) termino -> TRUE .
+
+    PUNTOCOMA       reduce using rule 44 (termino -> TRUE .)
+    SUMA            reduce using rule 44 (termino -> TRUE .)
+    RESTA           reduce using rule 44 (termino -> TRUE .)
+    MULT            reduce using rule 44 (termino -> TRUE .)
+    DIV             reduce using rule 44 (termino -> TRUE .)
+    PARDER          reduce using rule 44 (termino -> TRUE .)
+    IGUAL           reduce using rule 44 (termino -> TRUE .)
+    DIFERENTE       reduce using rule 44 (termino -> TRUE .)
+    MENOR           reduce using rule 44 (termino -> TRUE .)
+    MAYOR           reduce using rule 44 (termino -> TRUE .)
+    MENORIGUAL      reduce using rule 44 (termino -> TRUE .)
+    MAYORIGUAL      reduce using rule 44 (termino -> TRUE .)
+
+
+state 36
+
+    (45) termino -> FALSE .
+
+    PUNTOCOMA       reduce using rule 45 (termino -> FALSE .)
+    SUMA            reduce using rule 45 (termino -> FALSE .)
+    RESTA           reduce using rule 45 (termino -> FALSE .)
+    MULT            reduce using rule 45 (termino -> FALSE .)
+    DIV             reduce using rule 45 (termino -> FALSE .)
+    PARDER          reduce using rule 45 (termino -> FALSE .)
+    IGUAL           reduce using rule 45 (termino -> FALSE .)
+    DIFERENTE       reduce using rule 45 (termino -> FALSE .)
+    MENOR           reduce using rule 45 (termino -> FALSE .)
+    MAYOR           reduce using rule 45 (termino -> FALSE .)
+    MENORIGUAL      reduce using rule 45 (termino -> FALSE .)
+    MAYORIGUAL      reduce using rule 45 (termino -> FALSE .)
+
+
+state 37
+
+    (46) termino -> PARIZQ . expresion PARDER
+    (35) expresion -> . expresion SUMA termino
+    (36) expresion -> . expresion RESTA termino
+    (37) expresion -> . expresion MULT termino
+    (38) expresion -> . expresion DIV termino
+    (39) expresion -> . termino
+    (40) termino -> . IDENTIFICADOR
+    (41) termino -> . NUMERO
+    (42) termino -> . DECIMAL
+    (43) termino -> . CARACTER
+    (44) termino -> . TRUE
+    (45) termino -> . FALSE
+    (46) termino -> . PARIZQ expresion PARDER
+
+    IDENTIFICADOR   shift and go to state 29
+    NUMERO          shift and go to state 32
+    DECIMAL         shift and go to state 33
+    CARACTER        shift and go to state 34
+    TRUE            shift and go to state 35
+    FALSE           shift and go to state 36
+    PARIZQ          shift and go to state 37
+
+    expresion                      shift and go to state 51
+    termino                        shift and go to state 31
+
+state 38
+
+    (47) imprimir -> PRINT PARIZQ expresion . PARDER PUNTOCOMA
+    (35) expresion -> expresion . SUMA termino
+    (36) expresion -> expresion . RESTA termino
+    (37) expresion -> expresion . MULT termino
+    (38) expresion -> expresion . DIV termino
+
+    PARDER          shift and go to state 52
+    SUMA            shift and go to state 47
+    RESTA           shift and go to state 48
+    MULT            shift and go to state 49
+    DIV             shift and go to state 50
+
+
+state 39
+
+    (17) estructura_si -> SI PARIZQ condicion . PARDER LLAVEIZQ declaraciones LLAVEDER
+    (18) estructura_si -> SI PARIZQ condicion . PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (19) estructura_si -> SI PARIZQ condicion . PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (20) estructura_si -> SI PARIZQ condicion . PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+
+    PARDER          shift and go to state 53
+
+
+state 40
+
+    (29) condicion -> expresion . IGUAL expresion
+    (30) condicion -> expresion . DIFERENTE expresion
+    (31) condicion -> expresion . MENOR expresion
+    (32) condicion -> expresion . MAYOR expresion
+    (33) condicion -> expresion . MENORIGUAL expresion
+    (34) condicion -> expresion . MAYORIGUAL expresion
+    (35) expresion -> expresion . SUMA termino
+    (36) expresion -> expresion . RESTA termino
+    (37) expresion -> expresion . MULT termino
+    (38) expresion -> expresion . DIV termino
+
+    IGUAL           shift and go to state 54
+    DIFERENTE       shift and go to state 55
+    MENOR           shift and go to state 56
+    MAYOR           shift and go to state 57
+    MENORIGUAL      shift and go to state 58
+    MAYORIGUAL      shift and go to state 59
+    SUMA            shift and go to state 47
+    RESTA           shift and go to state 48
+    MULT            shift and go to state 49
+    DIV             shift and go to state 50
+
+
+state 41
+
+    (21) estructura_mientras -> MIENTRAS PARIZQ condicion . PARDER LLAVEIZQ declaraciones LLAVEDER
+
+    PARDER          shift and go to state 60
+
+
+state 42
+
+    (22) estructura_para -> PARA PARIZQ inicializacion_para . PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER
+
+    PUNTOCOMA       shift and go to state 61
+
+
+state 43
+
+    (23) inicializacion_para -> tipo . IDENTIFICADOR ASIG expresion
+
+    IDENTIFICADOR   shift and go to state 62
+
+
+state 44
+
+    (24) inicializacion_para -> IDENTIFICADOR . ASIG expresion
+
+    ASIG            shift and go to state 63
+
+
+state 45
+
+    (8) declaracion_variable -> tipo IDENTIFICADOR ASIG expresion . PUNTOCOMA
+    (35) expresion -> expresion . SUMA termino
+    (36) expresion -> expresion . RESTA termino
+    (37) expresion -> expresion . MULT termino
+    (38) expresion -> expresion . DIV termino
+
+    PUNTOCOMA       shift and go to state 64
+    SUMA            shift and go to state 47
+    RESTA           shift and go to state 48
+    MULT            shift and go to state 49
+    DIV             shift and go to state 50
+
+
+state 46
+
+    (13) asignacion -> IDENTIFICADOR ASIG expresion PUNTOCOMA .
+
+    IDENTIFICADOR   reduce using rule 13 (asignacion -> IDENTIFICADOR ASIG expresion PUNTOCOMA .)
+    PRINT           reduce using rule 13 (asignacion -> IDENTIFICADOR ASIG expresion PUNTOCOMA .)
+    TIPO_ENTERO     reduce using rule 13 (asignacion -> IDENTIFICADOR ASIG expresion PUNTOCOMA .)
+    TIPO_DECIMAL    reduce using rule 13 (asignacion -> IDENTIFICADOR ASIG expresion PUNTOCOMA .)
+    TIPO_CARACTER   reduce using rule 13 (asignacion -> IDENTIFICADOR ASIG expresion PUNTOCOMA .)
+    TIPO_BOOLEANO   reduce using rule 13 (asignacion -> IDENTIFICADOR ASIG expresion PUNTOCOMA .)
+    SI              reduce using rule 13 (asignacion -> IDENTIFICADOR ASIG expresion PUNTOCOMA .)
+    MIENTRAS        reduce using rule 13 (asignacion -> IDENTIFICADOR ASIG expresion PUNTOCOMA .)
+    PARA            reduce using rule 13 (asignacion -> IDENTIFICADOR ASIG expresion PUNTOCOMA .)
+    $end            reduce using rule 13 (asignacion -> IDENTIFICADOR ASIG expresion PUNTOCOMA .)
+    LLAVEDER        reduce using rule 13 (asignacion -> IDENTIFICADOR ASIG expresion PUNTOCOMA .)
+
+
+state 47
+
+    (35) expresion -> expresion SUMA . termino
+    (40) termino -> . IDENTIFICADOR
+    (41) termino -> . NUMERO
+    (42) termino -> . DECIMAL
+    (43) termino -> . CARACTER
+    (44) termino -> . TRUE
+    (45) termino -> . FALSE
+    (46) termino -> . PARIZQ expresion PARDER
+
+    IDENTIFICADOR   shift and go to state 29
+    NUMERO          shift and go to state 32
+    DECIMAL         shift and go to state 33
+    CARACTER        shift and go to state 34
+    TRUE            shift and go to state 35
+    FALSE           shift and go to state 36
+    PARIZQ          shift and go to state 37
+
+    termino                        shift and go to state 65
+
+state 48
+
+    (36) expresion -> expresion RESTA . termino
+    (40) termino -> . IDENTIFICADOR
+    (41) termino -> . NUMERO
+    (42) termino -> . DECIMAL
+    (43) termino -> . CARACTER
+    (44) termino -> . TRUE
+    (45) termino -> . FALSE
+    (46) termino -> . PARIZQ expresion PARDER
+
+    IDENTIFICADOR   shift and go to state 29
+    NUMERO          shift and go to state 32
+    DECIMAL         shift and go to state 33
+    CARACTER        shift and go to state 34
+    TRUE            shift and go to state 35
+    FALSE           shift and go to state 36
+    PARIZQ          shift and go to state 37
+
+    termino                        shift and go to state 66
+
+state 49
+
+    (37) expresion -> expresion MULT . termino
+    (40) termino -> . IDENTIFICADOR
+    (41) termino -> . NUMERO
+    (42) termino -> . DECIMAL
+    (43) termino -> . CARACTER
+    (44) termino -> . TRUE
+    (45) termino -> . FALSE
+    (46) termino -> . PARIZQ expresion PARDER
+
+    IDENTIFICADOR   shift and go to state 29
+    NUMERO          shift and go to state 32
+    DECIMAL         shift and go to state 33
+    CARACTER        shift and go to state 34
+    TRUE            shift and go to state 35
+    FALSE           shift and go to state 36
+    PARIZQ          shift and go to state 37
+
+    termino                        shift and go to state 67
+
+state 50
+
+    (38) expresion -> expresion DIV . termino
+    (40) termino -> . IDENTIFICADOR
+    (41) termino -> . NUMERO
+    (42) termino -> . DECIMAL
+    (43) termino -> . CARACTER
+    (44) termino -> . TRUE
+    (45) termino -> . FALSE
+    (46) termino -> . PARIZQ expresion PARDER
+
+    IDENTIFICADOR   shift and go to state 29
+    NUMERO          shift and go to state 32
+    DECIMAL         shift and go to state 33
+    CARACTER        shift and go to state 34
+    TRUE            shift and go to state 35
+    FALSE           shift and go to state 36
+    PARIZQ          shift and go to state 37
+
+    termino                        shift and go to state 68
+
+state 51
+
+    (46) termino -> PARIZQ expresion . PARDER
+    (35) expresion -> expresion . SUMA termino
+    (36) expresion -> expresion . RESTA termino
+    (37) expresion -> expresion . MULT termino
+    (38) expresion -> expresion . DIV termino
+
+    PARDER          shift and go to state 69
+    SUMA            shift and go to state 47
+    RESTA           shift and go to state 48
+    MULT            shift and go to state 49
+    DIV             shift and go to state 50
+
+
+state 52
+
+    (47) imprimir -> PRINT PARIZQ expresion PARDER . PUNTOCOMA
+
+    PUNTOCOMA       shift and go to state 70
+
+
+state 53
+
+    (17) estructura_si -> SI PARIZQ condicion PARDER . LLAVEIZQ declaraciones LLAVEDER
+    (18) estructura_si -> SI PARIZQ condicion PARDER . LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (19) estructura_si -> SI PARIZQ condicion PARDER . LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (20) estructura_si -> SI PARIZQ condicion PARDER . LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+
+    LLAVEIZQ        shift and go to state 71
+
+
+state 54
+
+    (29) condicion -> expresion IGUAL . expresion
+    (35) expresion -> . expresion SUMA termino
+    (36) expresion -> . expresion RESTA termino
+    (37) expresion -> . expresion MULT termino
+    (38) expresion -> . expresion DIV termino
+    (39) expresion -> . termino
+    (40) termino -> . IDENTIFICADOR
+    (41) termino -> . NUMERO
+    (42) termino -> . DECIMAL
+    (43) termino -> . CARACTER
+    (44) termino -> . TRUE
+    (45) termino -> . FALSE
+    (46) termino -> . PARIZQ expresion PARDER
+
+    IDENTIFICADOR   shift and go to state 29
+    NUMERO          shift and go to state 32
+    DECIMAL         shift and go to state 33
+    CARACTER        shift and go to state 34
+    TRUE            shift and go to state 35
+    FALSE           shift and go to state 36
+    PARIZQ          shift and go to state 37
+
+    expresion                      shift and go to state 72
+    termino                        shift and go to state 31
+
+state 55
+
+    (30) condicion -> expresion DIFERENTE . expresion
+    (35) expresion -> . expresion SUMA termino
+    (36) expresion -> . expresion RESTA termino
+    (37) expresion -> . expresion MULT termino
+    (38) expresion -> . expresion DIV termino
+    (39) expresion -> . termino
+    (40) termino -> . IDENTIFICADOR
+    (41) termino -> . NUMERO
+    (42) termino -> . DECIMAL
+    (43) termino -> . CARACTER
+    (44) termino -> . TRUE
+    (45) termino -> . FALSE
+    (46) termino -> . PARIZQ expresion PARDER
+
+    IDENTIFICADOR   shift and go to state 29
+    NUMERO          shift and go to state 32
+    DECIMAL         shift and go to state 33
+    CARACTER        shift and go to state 34
+    TRUE            shift and go to state 35
+    FALSE           shift and go to state 36
+    PARIZQ          shift and go to state 37
+
+    expresion                      shift and go to state 73
+    termino                        shift and go to state 31
+
+state 56
+
+    (31) condicion -> expresion MENOR . expresion
+    (35) expresion -> . expresion SUMA termino
+    (36) expresion -> . expresion RESTA termino
+    (37) expresion -> . expresion MULT termino
+    (38) expresion -> . expresion DIV termino
+    (39) expresion -> . termino
+    (40) termino -> . IDENTIFICADOR
+    (41) termino -> . NUMERO
+    (42) termino -> . DECIMAL
+    (43) termino -> . CARACTER
+    (44) termino -> . TRUE
+    (45) termino -> . FALSE
+    (46) termino -> . PARIZQ expresion PARDER
+
+    IDENTIFICADOR   shift and go to state 29
+    NUMERO          shift and go to state 32
+    DECIMAL         shift and go to state 33
+    CARACTER        shift and go to state 34
+    TRUE            shift and go to state 35
+    FALSE           shift and go to state 36
+    PARIZQ          shift and go to state 37
+
+    expresion                      shift and go to state 74
+    termino                        shift and go to state 31
+
+state 57
+
+    (32) condicion -> expresion MAYOR . expresion
+    (35) expresion -> . expresion SUMA termino
+    (36) expresion -> . expresion RESTA termino
+    (37) expresion -> . expresion MULT termino
+    (38) expresion -> . expresion DIV termino
+    (39) expresion -> . termino
+    (40) termino -> . IDENTIFICADOR
+    (41) termino -> . NUMERO
+    (42) termino -> . DECIMAL
+    (43) termino -> . CARACTER
+    (44) termino -> . TRUE
+    (45) termino -> . FALSE
+    (46) termino -> . PARIZQ expresion PARDER
+
+    IDENTIFICADOR   shift and go to state 29
+    NUMERO          shift and go to state 32
+    DECIMAL         shift and go to state 33
+    CARACTER        shift and go to state 34
+    TRUE            shift and go to state 35
+    FALSE           shift and go to state 36
+    PARIZQ          shift and go to state 37
+
+    expresion                      shift and go to state 75
+    termino                        shift and go to state 31
+
+state 58
+
+    (33) condicion -> expresion MENORIGUAL . expresion
+    (35) expresion -> . expresion SUMA termino
+    (36) expresion -> . expresion RESTA termino
+    (37) expresion -> . expresion MULT termino
+    (38) expresion -> . expresion DIV termino
+    (39) expresion -> . termino
+    (40) termino -> . IDENTIFICADOR
+    (41) termino -> . NUMERO
+    (42) termino -> . DECIMAL
+    (43) termino -> . CARACTER
+    (44) termino -> . TRUE
+    (45) termino -> . FALSE
+    (46) termino -> . PARIZQ expresion PARDER
+
+    IDENTIFICADOR   shift and go to state 29
+    NUMERO          shift and go to state 32
+    DECIMAL         shift and go to state 33
+    CARACTER        shift and go to state 34
+    TRUE            shift and go to state 35
+    FALSE           shift and go to state 36
+    PARIZQ          shift and go to state 37
+
+    expresion                      shift and go to state 76
+    termino                        shift and go to state 31
+
+state 59
+
+    (34) condicion -> expresion MAYORIGUAL . expresion
+    (35) expresion -> . expresion SUMA termino
+    (36) expresion -> . expresion RESTA termino
+    (37) expresion -> . expresion MULT termino
+    (38) expresion -> . expresion DIV termino
+    (39) expresion -> . termino
+    (40) termino -> . IDENTIFICADOR
+    (41) termino -> . NUMERO
+    (42) termino -> . DECIMAL
+    (43) termino -> . CARACTER
+    (44) termino -> . TRUE
+    (45) termino -> . FALSE
+    (46) termino -> . PARIZQ expresion PARDER
+
+    IDENTIFICADOR   shift and go to state 29
+    NUMERO          shift and go to state 32
+    DECIMAL         shift and go to state 33
+    CARACTER        shift and go to state 34
+    TRUE            shift and go to state 35
+    FALSE           shift and go to state 36
+    PARIZQ          shift and go to state 37
+
+    expresion                      shift and go to state 77
+    termino                        shift and go to state 31
+
+state 60
+
+    (21) estructura_mientras -> MIENTRAS PARIZQ condicion PARDER . LLAVEIZQ declaraciones LLAVEDER
+
+    LLAVEIZQ        shift and go to state 78
+
+
+state 61
+
+    (22) estructura_para -> PARA PARIZQ inicializacion_para PUNTOCOMA . condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER
+    (29) condicion -> . expresion IGUAL expresion
+    (30) condicion -> . expresion DIFERENTE expresion
+    (31) condicion -> . expresion MENOR expresion
+    (32) condicion -> . expresion MAYOR expresion
+    (33) condicion -> . expresion MENORIGUAL expresion
+    (34) condicion -> . expresion MAYORIGUAL expresion
+    (35) expresion -> . expresion SUMA termino
+    (36) expresion -> . expresion RESTA termino
+    (37) expresion -> . expresion MULT termino
+    (38) expresion -> . expresion DIV termino
+    (39) expresion -> . termino
+    (40) termino -> . IDENTIFICADOR
+    (41) termino -> . NUMERO
+    (42) termino -> . DECIMAL
+    (43) termino -> . CARACTER
+    (44) termino -> . TRUE
+    (45) termino -> . FALSE
+    (46) termino -> . PARIZQ expresion PARDER
+
+    IDENTIFICADOR   shift and go to state 29
+    NUMERO          shift and go to state 32
+    DECIMAL         shift and go to state 33
+    CARACTER        shift and go to state 34
+    TRUE            shift and go to state 35
+    FALSE           shift and go to state 36
+    PARIZQ          shift and go to state 37
+
+    condicion                      shift and go to state 79
+    expresion                      shift and go to state 40
+    termino                        shift and go to state 31
+
+state 62
+
+    (23) inicializacion_para -> tipo IDENTIFICADOR . ASIG expresion
+
+    ASIG            shift and go to state 80
+
+
+state 63
+
+    (24) inicializacion_para -> IDENTIFICADOR ASIG . expresion
+    (35) expresion -> . expresion SUMA termino
+    (36) expresion -> . expresion RESTA termino
+    (37) expresion -> . expresion MULT termino
+    (38) expresion -> . expresion DIV termino
+    (39) expresion -> . termino
+    (40) termino -> . IDENTIFICADOR
+    (41) termino -> . NUMERO
+    (42) termino -> . DECIMAL
+    (43) termino -> . CARACTER
+    (44) termino -> . TRUE
+    (45) termino -> . FALSE
+    (46) termino -> . PARIZQ expresion PARDER
+
+    IDENTIFICADOR   shift and go to state 29
+    NUMERO          shift and go to state 32
+    DECIMAL         shift and go to state 33
+    CARACTER        shift and go to state 34
+    TRUE            shift and go to state 35
+    FALSE           shift and go to state 36
+    PARIZQ          shift and go to state 37
+
+    expresion                      shift and go to state 81
+    termino                        shift and go to state 31
+
+state 64
+
+    (8) declaracion_variable -> tipo IDENTIFICADOR ASIG expresion PUNTOCOMA .
+
+    IDENTIFICADOR   reduce using rule 8 (declaracion_variable -> tipo IDENTIFICADOR ASIG expresion PUNTOCOMA .)
+    PRINT           reduce using rule 8 (declaracion_variable -> tipo IDENTIFICADOR ASIG expresion PUNTOCOMA .)
+    TIPO_ENTERO     reduce using rule 8 (declaracion_variable -> tipo IDENTIFICADOR ASIG expresion PUNTOCOMA .)
+    TIPO_DECIMAL    reduce using rule 8 (declaracion_variable -> tipo IDENTIFICADOR ASIG expresion PUNTOCOMA .)
+    TIPO_CARACTER   reduce using rule 8 (declaracion_variable -> tipo IDENTIFICADOR ASIG expresion PUNTOCOMA .)
+    TIPO_BOOLEANO   reduce using rule 8 (declaracion_variable -> tipo IDENTIFICADOR ASIG expresion PUNTOCOMA .)
+    SI              reduce using rule 8 (declaracion_variable -> tipo IDENTIFICADOR ASIG expresion PUNTOCOMA .)
+    MIENTRAS        reduce using rule 8 (declaracion_variable -> tipo IDENTIFICADOR ASIG expresion PUNTOCOMA .)
+    PARA            reduce using rule 8 (declaracion_variable -> tipo IDENTIFICADOR ASIG expresion PUNTOCOMA .)
+    $end            reduce using rule 8 (declaracion_variable -> tipo IDENTIFICADOR ASIG expresion PUNTOCOMA .)
+    LLAVEDER        reduce using rule 8 (declaracion_variable -> tipo IDENTIFICADOR ASIG expresion PUNTOCOMA .)
+
+
+state 65
+
+    (35) expresion -> expresion SUMA termino .
+
+    PUNTOCOMA       reduce using rule 35 (expresion -> expresion SUMA termino .)
+    SUMA            reduce using rule 35 (expresion -> expresion SUMA termino .)
+    RESTA           reduce using rule 35 (expresion -> expresion SUMA termino .)
+    MULT            reduce using rule 35 (expresion -> expresion SUMA termino .)
+    DIV             reduce using rule 35 (expresion -> expresion SUMA termino .)
+    PARDER          reduce using rule 35 (expresion -> expresion SUMA termino .)
+    IGUAL           reduce using rule 35 (expresion -> expresion SUMA termino .)
+    DIFERENTE       reduce using rule 35 (expresion -> expresion SUMA termino .)
+    MENOR           reduce using rule 35 (expresion -> expresion SUMA termino .)
+    MAYOR           reduce using rule 35 (expresion -> expresion SUMA termino .)
+    MENORIGUAL      reduce using rule 35 (expresion -> expresion SUMA termino .)
+    MAYORIGUAL      reduce using rule 35 (expresion -> expresion SUMA termino .)
+
+
+state 66
+
+    (36) expresion -> expresion RESTA termino .
+
+    PUNTOCOMA       reduce using rule 36 (expresion -> expresion RESTA termino .)
+    SUMA            reduce using rule 36 (expresion -> expresion RESTA termino .)
+    RESTA           reduce using rule 36 (expresion -> expresion RESTA termino .)
+    MULT            reduce using rule 36 (expresion -> expresion RESTA termino .)
+    DIV             reduce using rule 36 (expresion -> expresion RESTA termino .)
+    PARDER          reduce using rule 36 (expresion -> expresion RESTA termino .)
+    IGUAL           reduce using rule 36 (expresion -> expresion RESTA termino .)
+    DIFERENTE       reduce using rule 36 (expresion -> expresion RESTA termino .)
+    MENOR           reduce using rule 36 (expresion -> expresion RESTA termino .)
+    MAYOR           reduce using rule 36 (expresion -> expresion RESTA termino .)
+    MENORIGUAL      reduce using rule 36 (expresion -> expresion RESTA termino .)
+    MAYORIGUAL      reduce using rule 36 (expresion -> expresion RESTA termino .)
+
+
+state 67
+
+    (37) expresion -> expresion MULT termino .
+
+    PUNTOCOMA       reduce using rule 37 (expresion -> expresion MULT termino .)
+    SUMA            reduce using rule 37 (expresion -> expresion MULT termino .)
+    RESTA           reduce using rule 37 (expresion -> expresion MULT termino .)
+    MULT            reduce using rule 37 (expresion -> expresion MULT termino .)
+    DIV             reduce using rule 37 (expresion -> expresion MULT termino .)
+    PARDER          reduce using rule 37 (expresion -> expresion MULT termino .)
+    IGUAL           reduce using rule 37 (expresion -> expresion MULT termino .)
+    DIFERENTE       reduce using rule 37 (expresion -> expresion MULT termino .)
+    MENOR           reduce using rule 37 (expresion -> expresion MULT termino .)
+    MAYOR           reduce using rule 37 (expresion -> expresion MULT termino .)
+    MENORIGUAL      reduce using rule 37 (expresion -> expresion MULT termino .)
+    MAYORIGUAL      reduce using rule 37 (expresion -> expresion MULT termino .)
+
+
+state 68
+
+    (38) expresion -> expresion DIV termino .
+
+    PUNTOCOMA       reduce using rule 38 (expresion -> expresion DIV termino .)
+    SUMA            reduce using rule 38 (expresion -> expresion DIV termino .)
+    RESTA           reduce using rule 38 (expresion -> expresion DIV termino .)
+    MULT            reduce using rule 38 (expresion -> expresion DIV termino .)
+    DIV             reduce using rule 38 (expresion -> expresion DIV termino .)
+    PARDER          reduce using rule 38 (expresion -> expresion DIV termino .)
+    IGUAL           reduce using rule 38 (expresion -> expresion DIV termino .)
+    DIFERENTE       reduce using rule 38 (expresion -> expresion DIV termino .)
+    MENOR           reduce using rule 38 (expresion -> expresion DIV termino .)
+    MAYOR           reduce using rule 38 (expresion -> expresion DIV termino .)
+    MENORIGUAL      reduce using rule 38 (expresion -> expresion DIV termino .)
+    MAYORIGUAL      reduce using rule 38 (expresion -> expresion DIV termino .)
+
+
+state 69
+
+    (46) termino -> PARIZQ expresion PARDER .
+
+    PUNTOCOMA       reduce using rule 46 (termino -> PARIZQ expresion PARDER .)
+    SUMA            reduce using rule 46 (termino -> PARIZQ expresion PARDER .)
+    RESTA           reduce using rule 46 (termino -> PARIZQ expresion PARDER .)
+    MULT            reduce using rule 46 (termino -> PARIZQ expresion PARDER .)
+    DIV             reduce using rule 46 (termino -> PARIZQ expresion PARDER .)
+    PARDER          reduce using rule 46 (termino -> PARIZQ expresion PARDER .)
+    IGUAL           reduce using rule 46 (termino -> PARIZQ expresion PARDER .)
+    DIFERENTE       reduce using rule 46 (termino -> PARIZQ expresion PARDER .)
+    MENOR           reduce using rule 46 (termino -> PARIZQ expresion PARDER .)
+    MAYOR           reduce using rule 46 (termino -> PARIZQ expresion PARDER .)
+    MENORIGUAL      reduce using rule 46 (termino -> PARIZQ expresion PARDER .)
+    MAYORIGUAL      reduce using rule 46 (termino -> PARIZQ expresion PARDER .)
+
+
+state 70
+
+    (47) imprimir -> PRINT PARIZQ expresion PARDER PUNTOCOMA .
+
+    IDENTIFICADOR   reduce using rule 47 (imprimir -> PRINT PARIZQ expresion PARDER PUNTOCOMA .)
+    PRINT           reduce using rule 47 (imprimir -> PRINT PARIZQ expresion PARDER PUNTOCOMA .)
+    TIPO_ENTERO     reduce using rule 47 (imprimir -> PRINT PARIZQ expresion PARDER PUNTOCOMA .)
+    TIPO_DECIMAL    reduce using rule 47 (imprimir -> PRINT PARIZQ expresion PARDER PUNTOCOMA .)
+    TIPO_CARACTER   reduce using rule 47 (imprimir -> PRINT PARIZQ expresion PARDER PUNTOCOMA .)
+    TIPO_BOOLEANO   reduce using rule 47 (imprimir -> PRINT PARIZQ expresion PARDER PUNTOCOMA .)
+    SI              reduce using rule 47 (imprimir -> PRINT PARIZQ expresion PARDER PUNTOCOMA .)
+    MIENTRAS        reduce using rule 47 (imprimir -> PRINT PARIZQ expresion PARDER PUNTOCOMA .)
+    PARA            reduce using rule 47 (imprimir -> PRINT PARIZQ expresion PARDER PUNTOCOMA .)
+    $end            reduce using rule 47 (imprimir -> PRINT PARIZQ expresion PARDER PUNTOCOMA .)
+    LLAVEDER        reduce using rule 47 (imprimir -> PRINT PARIZQ expresion PARDER PUNTOCOMA .)
+
+
+state 71
+
+    (17) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ . declaraciones LLAVEDER
+    (18) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ . declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (19) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ . declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (20) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ . declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (2) declaraciones -> . declaraciones declaracion
+    (3) declaraciones -> . declaracion
+    (4) declaracion -> . declaracion_variable
+    (5) declaracion -> . asignacion
+    (6) declaracion -> . estructura_control
+    (7) declaracion -> . imprimir
+    (8) declaracion_variable -> . tipo IDENTIFICADOR ASIG expresion PUNTOCOMA
+    (13) asignacion -> . IDENTIFICADOR ASIG expresion PUNTOCOMA
+    (14) estructura_control -> . estructura_si
+    (15) estructura_control -> . estructura_mientras
+    (16) estructura_control -> . estructura_para
+    (47) imprimir -> . PRINT PARIZQ expresion PARDER PUNTOCOMA
+    (9) tipo -> . TIPO_ENTERO
+    (10) tipo -> . TIPO_DECIMAL
+    (11) tipo -> . TIPO_CARACTER
+    (12) tipo -> . TIPO_BOOLEANO
+    (17) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (18) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (19) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (20) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (21) estructura_mientras -> . MIENTRAS PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (22) estructura_para -> . PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER
+
+    IDENTIFICADOR   shift and go to state 9
+    PRINT           shift and go to state 13
+    TIPO_ENTERO     shift and go to state 14
+    TIPO_DECIMAL    shift and go to state 15
+    TIPO_CARACTER   shift and go to state 16
+    TIPO_BOOLEANO   shift and go to state 17
+    SI              shift and go to state 18
+    MIENTRAS        shift and go to state 19
+    PARA            shift and go to state 20
+
+    declaraciones                  shift and go to state 82
+    declaracion                    shift and go to state 3
+    declaracion_variable           shift and go to state 4
+    asignacion                     shift and go to state 5
+    estructura_control             shift and go to state 6
+    imprimir                       shift and go to state 7
+    tipo                           shift and go to state 8
+    estructura_si                  shift and go to state 10
+    estructura_mientras            shift and go to state 11
+    estructura_para                shift and go to state 12
+
+state 72
+
+    (29) condicion -> expresion IGUAL expresion .
+    (35) expresion -> expresion . SUMA termino
+    (36) expresion -> expresion . RESTA termino
+    (37) expresion -> expresion . MULT termino
+    (38) expresion -> expresion . DIV termino
+
+    PARDER          reduce using rule 29 (condicion -> expresion IGUAL expresion .)
+    PUNTOCOMA       reduce using rule 29 (condicion -> expresion IGUAL expresion .)
+    SUMA            shift and go to state 47
+    RESTA           shift and go to state 48
+    MULT            shift and go to state 49
+    DIV             shift and go to state 50
+
+
+state 73
+
+    (30) condicion -> expresion DIFERENTE expresion .
+    (35) expresion -> expresion . SUMA termino
+    (36) expresion -> expresion . RESTA termino
+    (37) expresion -> expresion . MULT termino
+    (38) expresion -> expresion . DIV termino
+
+    PARDER          reduce using rule 30 (condicion -> expresion DIFERENTE expresion .)
+    PUNTOCOMA       reduce using rule 30 (condicion -> expresion DIFERENTE expresion .)
+    SUMA            shift and go to state 47
+    RESTA           shift and go to state 48
+    MULT            shift and go to state 49
+    DIV             shift and go to state 50
+
+
+state 74
+
+    (31) condicion -> expresion MENOR expresion .
+    (35) expresion -> expresion . SUMA termino
+    (36) expresion -> expresion . RESTA termino
+    (37) expresion -> expresion . MULT termino
+    (38) expresion -> expresion . DIV termino
+
+    PARDER          reduce using rule 31 (condicion -> expresion MENOR expresion .)
+    PUNTOCOMA       reduce using rule 31 (condicion -> expresion MENOR expresion .)
+    SUMA            shift and go to state 47
+    RESTA           shift and go to state 48
+    MULT            shift and go to state 49
+    DIV             shift and go to state 50
+
+
+state 75
+
+    (32) condicion -> expresion MAYOR expresion .
+    (35) expresion -> expresion . SUMA termino
+    (36) expresion -> expresion . RESTA termino
+    (37) expresion -> expresion . MULT termino
+    (38) expresion -> expresion . DIV termino
+
+    PARDER          reduce using rule 32 (condicion -> expresion MAYOR expresion .)
+    PUNTOCOMA       reduce using rule 32 (condicion -> expresion MAYOR expresion .)
+    SUMA            shift and go to state 47
+    RESTA           shift and go to state 48
+    MULT            shift and go to state 49
+    DIV             shift and go to state 50
+
+
+state 76
+
+    (33) condicion -> expresion MENORIGUAL expresion .
+    (35) expresion -> expresion . SUMA termino
+    (36) expresion -> expresion . RESTA termino
+    (37) expresion -> expresion . MULT termino
+    (38) expresion -> expresion . DIV termino
+
+    PARDER          reduce using rule 33 (condicion -> expresion MENORIGUAL expresion .)
+    PUNTOCOMA       reduce using rule 33 (condicion -> expresion MENORIGUAL expresion .)
+    SUMA            shift and go to state 47
+    RESTA           shift and go to state 48
+    MULT            shift and go to state 49
+    DIV             shift and go to state 50
+
+
+state 77
+
+    (34) condicion -> expresion MAYORIGUAL expresion .
+    (35) expresion -> expresion . SUMA termino
+    (36) expresion -> expresion . RESTA termino
+    (37) expresion -> expresion . MULT termino
+    (38) expresion -> expresion . DIV termino
+
+    PARDER          reduce using rule 34 (condicion -> expresion MAYORIGUAL expresion .)
+    PUNTOCOMA       reduce using rule 34 (condicion -> expresion MAYORIGUAL expresion .)
+    SUMA            shift and go to state 47
+    RESTA           shift and go to state 48
+    MULT            shift and go to state 49
+    DIV             shift and go to state 50
+
+
+state 78
+
+    (21) estructura_mientras -> MIENTRAS PARIZQ condicion PARDER LLAVEIZQ . declaraciones LLAVEDER
+    (2) declaraciones -> . declaraciones declaracion
+    (3) declaraciones -> . declaracion
+    (4) declaracion -> . declaracion_variable
+    (5) declaracion -> . asignacion
+    (6) declaracion -> . estructura_control
+    (7) declaracion -> . imprimir
+    (8) declaracion_variable -> . tipo IDENTIFICADOR ASIG expresion PUNTOCOMA
+    (13) asignacion -> . IDENTIFICADOR ASIG expresion PUNTOCOMA
+    (14) estructura_control -> . estructura_si
+    (15) estructura_control -> . estructura_mientras
+    (16) estructura_control -> . estructura_para
+    (47) imprimir -> . PRINT PARIZQ expresion PARDER PUNTOCOMA
+    (9) tipo -> . TIPO_ENTERO
+    (10) tipo -> . TIPO_DECIMAL
+    (11) tipo -> . TIPO_CARACTER
+    (12) tipo -> . TIPO_BOOLEANO
+    (17) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (18) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (19) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (20) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (21) estructura_mientras -> . MIENTRAS PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (22) estructura_para -> . PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER
+
+    IDENTIFICADOR   shift and go to state 9
+    PRINT           shift and go to state 13
+    TIPO_ENTERO     shift and go to state 14
+    TIPO_DECIMAL    shift and go to state 15
+    TIPO_CARACTER   shift and go to state 16
+    TIPO_BOOLEANO   shift and go to state 17
+    SI              shift and go to state 18
+    MIENTRAS        shift and go to state 19
+    PARA            shift and go to state 20
+
+    declaraciones                  shift and go to state 83
+    declaracion                    shift and go to state 3
+    declaracion_variable           shift and go to state 4
+    asignacion                     shift and go to state 5
+    estructura_control             shift and go to state 6
+    imprimir                       shift and go to state 7
+    tipo                           shift and go to state 8
+    estructura_si                  shift and go to state 10
+    estructura_mientras            shift and go to state 11
+    estructura_para                shift and go to state 12
+
+state 79
+
+    (22) estructura_para -> PARA PARIZQ inicializacion_para PUNTOCOMA condicion . PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER
+
+    PUNTOCOMA       shift and go to state 84
+
+
+state 80
+
+    (23) inicializacion_para -> tipo IDENTIFICADOR ASIG . expresion
+    (35) expresion -> . expresion SUMA termino
+    (36) expresion -> . expresion RESTA termino
+    (37) expresion -> . expresion MULT termino
+    (38) expresion -> . expresion DIV termino
+    (39) expresion -> . termino
+    (40) termino -> . IDENTIFICADOR
+    (41) termino -> . NUMERO
+    (42) termino -> . DECIMAL
+    (43) termino -> . CARACTER
+    (44) termino -> . TRUE
+    (45) termino -> . FALSE
+    (46) termino -> . PARIZQ expresion PARDER
+
+    IDENTIFICADOR   shift and go to state 29
+    NUMERO          shift and go to state 32
+    DECIMAL         shift and go to state 33
+    CARACTER        shift and go to state 34
+    TRUE            shift and go to state 35
+    FALSE           shift and go to state 36
+    PARIZQ          shift and go to state 37
+
+    expresion                      shift and go to state 85
+    termino                        shift and go to state 31
+
+state 81
+
+    (24) inicializacion_para -> IDENTIFICADOR ASIG expresion .
+    (35) expresion -> expresion . SUMA termino
+    (36) expresion -> expresion . RESTA termino
+    (37) expresion -> expresion . MULT termino
+    (38) expresion -> expresion . DIV termino
+
+    PUNTOCOMA       reduce using rule 24 (inicializacion_para -> IDENTIFICADOR ASIG expresion .)
+    SUMA            shift and go to state 47
+    RESTA           shift and go to state 48
+    MULT            shift and go to state 49
+    DIV             shift and go to state 50
+
+
+state 82
+
+    (17) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones . LLAVEDER
+    (18) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones . LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (19) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones . LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (20) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones . LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (2) declaraciones -> declaraciones . declaracion
+    (4) declaracion -> . declaracion_variable
+    (5) declaracion -> . asignacion
+    (6) declaracion -> . estructura_control
+    (7) declaracion -> . imprimir
+    (8) declaracion_variable -> . tipo IDENTIFICADOR ASIG expresion PUNTOCOMA
+    (13) asignacion -> . IDENTIFICADOR ASIG expresion PUNTOCOMA
+    (14) estructura_control -> . estructura_si
+    (15) estructura_control -> . estructura_mientras
+    (16) estructura_control -> . estructura_para
+    (47) imprimir -> . PRINT PARIZQ expresion PARDER PUNTOCOMA
+    (9) tipo -> . TIPO_ENTERO
+    (10) tipo -> . TIPO_DECIMAL
+    (11) tipo -> . TIPO_CARACTER
+    (12) tipo -> . TIPO_BOOLEANO
+    (17) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (18) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (19) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (20) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (21) estructura_mientras -> . MIENTRAS PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (22) estructura_para -> . PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER
+
+    LLAVEDER        shift and go to state 86
+    IDENTIFICADOR   shift and go to state 9
+    PRINT           shift and go to state 13
+    TIPO_ENTERO     shift and go to state 14
+    TIPO_DECIMAL    shift and go to state 15
+    TIPO_CARACTER   shift and go to state 16
+    TIPO_BOOLEANO   shift and go to state 17
+    SI              shift and go to state 18
+    MIENTRAS        shift and go to state 19
+    PARA            shift and go to state 20
+
+    declaracion                    shift and go to state 21
+    declaracion_variable           shift and go to state 4
+    asignacion                     shift and go to state 5
+    estructura_control             shift and go to state 6
+    imprimir                       shift and go to state 7
+    tipo                           shift and go to state 8
+    estructura_si                  shift and go to state 10
+    estructura_mientras            shift and go to state 11
+    estructura_para                shift and go to state 12
+
+state 83
+
+    (21) estructura_mientras -> MIENTRAS PARIZQ condicion PARDER LLAVEIZQ declaraciones . LLAVEDER
+    (2) declaraciones -> declaraciones . declaracion
+    (4) declaracion -> . declaracion_variable
+    (5) declaracion -> . asignacion
+    (6) declaracion -> . estructura_control
+    (7) declaracion -> . imprimir
+    (8) declaracion_variable -> . tipo IDENTIFICADOR ASIG expresion PUNTOCOMA
+    (13) asignacion -> . IDENTIFICADOR ASIG expresion PUNTOCOMA
+    (14) estructura_control -> . estructura_si
+    (15) estructura_control -> . estructura_mientras
+    (16) estructura_control -> . estructura_para
+    (47) imprimir -> . PRINT PARIZQ expresion PARDER PUNTOCOMA
+    (9) tipo -> . TIPO_ENTERO
+    (10) tipo -> . TIPO_DECIMAL
+    (11) tipo -> . TIPO_CARACTER
+    (12) tipo -> . TIPO_BOOLEANO
+    (17) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (18) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (19) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (20) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (21) estructura_mientras -> . MIENTRAS PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (22) estructura_para -> . PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER
+
+    LLAVEDER        shift and go to state 87
+    IDENTIFICADOR   shift and go to state 9
+    PRINT           shift and go to state 13
+    TIPO_ENTERO     shift and go to state 14
+    TIPO_DECIMAL    shift and go to state 15
+    TIPO_CARACTER   shift and go to state 16
+    TIPO_BOOLEANO   shift and go to state 17
+    SI              shift and go to state 18
+    MIENTRAS        shift and go to state 19
+    PARA            shift and go to state 20
+
+    declaracion                    shift and go to state 21
+    declaracion_variable           shift and go to state 4
+    asignacion                     shift and go to state 5
+    estructura_control             shift and go to state 6
+    imprimir                       shift and go to state 7
+    tipo                           shift and go to state 8
+    estructura_si                  shift and go to state 10
+    estructura_mientras            shift and go to state 11
+    estructura_para                shift and go to state 12
+
+state 84
+
+    (22) estructura_para -> PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA . incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER
+    (25) incremento_para -> . IDENTIFICADOR ASIG IDENTIFICADOR SUMA NUMERO
+    (26) incremento_para -> . IDENTIFICADOR ASIG IDENTIFICADOR RESTA NUMERO
+    (27) incremento_para -> . IDENTIFICADOR SUMA SUMA
+    (28) incremento_para -> . IDENTIFICADOR RESTA RESTA
+
+    IDENTIFICADOR   shift and go to state 89
+
+    incremento_para                shift and go to state 88
+
+state 85
+
+    (23) inicializacion_para -> tipo IDENTIFICADOR ASIG expresion .
+    (35) expresion -> expresion . SUMA termino
+    (36) expresion -> expresion . RESTA termino
+    (37) expresion -> expresion . MULT termino
+    (38) expresion -> expresion . DIV termino
+
+    PUNTOCOMA       reduce using rule 23 (inicializacion_para -> tipo IDENTIFICADOR ASIG expresion .)
+    SUMA            shift and go to state 47
+    RESTA           shift and go to state 48
+    MULT            shift and go to state 49
+    DIV             shift and go to state 50
+
+
+state 86
+
+    (17) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .
+    (18) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER . SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (19) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER . SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (20) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER . EOC LLAVEIZQ declaraciones LLAVEDER
+
+    IDENTIFICADOR   reduce using rule 17 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    PRINT           reduce using rule 17 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    TIPO_ENTERO     reduce using rule 17 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    TIPO_DECIMAL    reduce using rule 17 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    TIPO_CARACTER   reduce using rule 17 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    TIPO_BOOLEANO   reduce using rule 17 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    SI              reduce using rule 17 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    MIENTRAS        reduce using rule 17 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    PARA            reduce using rule 17 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    $end            reduce using rule 17 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    LLAVEDER        reduce using rule 17 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    SINO            shift and go to state 90
+    EOC             shift and go to state 91
+
+
+state 87
+
+    (21) estructura_mientras -> MIENTRAS PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .
+
+    IDENTIFICADOR   reduce using rule 21 (estructura_mientras -> MIENTRAS PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    PRINT           reduce using rule 21 (estructura_mientras -> MIENTRAS PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    TIPO_ENTERO     reduce using rule 21 (estructura_mientras -> MIENTRAS PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    TIPO_DECIMAL    reduce using rule 21 (estructura_mientras -> MIENTRAS PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    TIPO_CARACTER   reduce using rule 21 (estructura_mientras -> MIENTRAS PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    TIPO_BOOLEANO   reduce using rule 21 (estructura_mientras -> MIENTRAS PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    SI              reduce using rule 21 (estructura_mientras -> MIENTRAS PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    MIENTRAS        reduce using rule 21 (estructura_mientras -> MIENTRAS PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    PARA            reduce using rule 21 (estructura_mientras -> MIENTRAS PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    $end            reduce using rule 21 (estructura_mientras -> MIENTRAS PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    LLAVEDER        reduce using rule 21 (estructura_mientras -> MIENTRAS PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+
+
+state 88
+
+    (22) estructura_para -> PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para . PARDER LLAVEIZQ declaraciones LLAVEDER
+
+    PARDER          shift and go to state 92
+
+
+state 89
+
+    (25) incremento_para -> IDENTIFICADOR . ASIG IDENTIFICADOR SUMA NUMERO
+    (26) incremento_para -> IDENTIFICADOR . ASIG IDENTIFICADOR RESTA NUMERO
+    (27) incremento_para -> IDENTIFICADOR . SUMA SUMA
+    (28) incremento_para -> IDENTIFICADOR . RESTA RESTA
+
+    ASIG            shift and go to state 93
+    SUMA            shift and go to state 94
+    RESTA           shift and go to state 95
+
+
+state 90
+
+    (18) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO . PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (19) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO . PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+
+    PARIZQ          shift and go to state 96
+
+
+state 91
+
+    (20) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC . LLAVEIZQ declaraciones LLAVEDER
+
+    LLAVEIZQ        shift and go to state 97
+
+
+state 92
+
+    (22) estructura_para -> PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER . LLAVEIZQ declaraciones LLAVEDER
+
+    LLAVEIZQ        shift and go to state 98
+
+
+state 93
+
+    (25) incremento_para -> IDENTIFICADOR ASIG . IDENTIFICADOR SUMA NUMERO
+    (26) incremento_para -> IDENTIFICADOR ASIG . IDENTIFICADOR RESTA NUMERO
+
+    IDENTIFICADOR   shift and go to state 99
+
+
+state 94
+
+    (27) incremento_para -> IDENTIFICADOR SUMA . SUMA
+
+    SUMA            shift and go to state 100
+
+
+state 95
+
+    (28) incremento_para -> IDENTIFICADOR RESTA . RESTA
+
+    RESTA           shift and go to state 101
+
+
+state 96
+
+    (18) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ . condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (19) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ . condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (29) condicion -> . expresion IGUAL expresion
+    (30) condicion -> . expresion DIFERENTE expresion
+    (31) condicion -> . expresion MENOR expresion
+    (32) condicion -> . expresion MAYOR expresion
+    (33) condicion -> . expresion MENORIGUAL expresion
+    (34) condicion -> . expresion MAYORIGUAL expresion
+    (35) expresion -> . expresion SUMA termino
+    (36) expresion -> . expresion RESTA termino
+    (37) expresion -> . expresion MULT termino
+    (38) expresion -> . expresion DIV termino
+    (39) expresion -> . termino
+    (40) termino -> . IDENTIFICADOR
+    (41) termino -> . NUMERO
+    (42) termino -> . DECIMAL
+    (43) termino -> . CARACTER
+    (44) termino -> . TRUE
+    (45) termino -> . FALSE
+    (46) termino -> . PARIZQ expresion PARDER
+
+    IDENTIFICADOR   shift and go to state 29
+    NUMERO          shift and go to state 32
+    DECIMAL         shift and go to state 33
+    CARACTER        shift and go to state 34
+    TRUE            shift and go to state 35
+    FALSE           shift and go to state 36
+    PARIZQ          shift and go to state 37
+
+    condicion                      shift and go to state 102
+    expresion                      shift and go to state 40
+    termino                        shift and go to state 31
+
+state 97
+
+    (20) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ . declaraciones LLAVEDER
+    (2) declaraciones -> . declaraciones declaracion
+    (3) declaraciones -> . declaracion
+    (4) declaracion -> . declaracion_variable
+    (5) declaracion -> . asignacion
+    (6) declaracion -> . estructura_control
+    (7) declaracion -> . imprimir
+    (8) declaracion_variable -> . tipo IDENTIFICADOR ASIG expresion PUNTOCOMA
+    (13) asignacion -> . IDENTIFICADOR ASIG expresion PUNTOCOMA
+    (14) estructura_control -> . estructura_si
+    (15) estructura_control -> . estructura_mientras
+    (16) estructura_control -> . estructura_para
+    (47) imprimir -> . PRINT PARIZQ expresion PARDER PUNTOCOMA
+    (9) tipo -> . TIPO_ENTERO
+    (10) tipo -> . TIPO_DECIMAL
+    (11) tipo -> . TIPO_CARACTER
+    (12) tipo -> . TIPO_BOOLEANO
+    (17) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (18) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (19) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (20) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (21) estructura_mientras -> . MIENTRAS PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (22) estructura_para -> . PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER
+
+    IDENTIFICADOR   shift and go to state 9
+    PRINT           shift and go to state 13
+    TIPO_ENTERO     shift and go to state 14
+    TIPO_DECIMAL    shift and go to state 15
+    TIPO_CARACTER   shift and go to state 16
+    TIPO_BOOLEANO   shift and go to state 17
+    SI              shift and go to state 18
+    MIENTRAS        shift and go to state 19
+    PARA            shift and go to state 20
+
+    declaraciones                  shift and go to state 103
+    declaracion                    shift and go to state 3
+    declaracion_variable           shift and go to state 4
+    asignacion                     shift and go to state 5
+    estructura_control             shift and go to state 6
+    imprimir                       shift and go to state 7
+    tipo                           shift and go to state 8
+    estructura_si                  shift and go to state 10
+    estructura_mientras            shift and go to state 11
+    estructura_para                shift and go to state 12
+
+state 98
+
+    (22) estructura_para -> PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ . declaraciones LLAVEDER
+    (2) declaraciones -> . declaraciones declaracion
+    (3) declaraciones -> . declaracion
+    (4) declaracion -> . declaracion_variable
+    (5) declaracion -> . asignacion
+    (6) declaracion -> . estructura_control
+    (7) declaracion -> . imprimir
+    (8) declaracion_variable -> . tipo IDENTIFICADOR ASIG expresion PUNTOCOMA
+    (13) asignacion -> . IDENTIFICADOR ASIG expresion PUNTOCOMA
+    (14) estructura_control -> . estructura_si
+    (15) estructura_control -> . estructura_mientras
+    (16) estructura_control -> . estructura_para
+    (47) imprimir -> . PRINT PARIZQ expresion PARDER PUNTOCOMA
+    (9) tipo -> . TIPO_ENTERO
+    (10) tipo -> . TIPO_DECIMAL
+    (11) tipo -> . TIPO_CARACTER
+    (12) tipo -> . TIPO_BOOLEANO
+    (17) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (18) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (19) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (20) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (21) estructura_mientras -> . MIENTRAS PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (22) estructura_para -> . PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER
+
+    IDENTIFICADOR   shift and go to state 9
+    PRINT           shift and go to state 13
+    TIPO_ENTERO     shift and go to state 14
+    TIPO_DECIMAL    shift and go to state 15
+    TIPO_CARACTER   shift and go to state 16
+    TIPO_BOOLEANO   shift and go to state 17
+    SI              shift and go to state 18
+    MIENTRAS        shift and go to state 19
+    PARA            shift and go to state 20
+
+    declaraciones                  shift and go to state 104
+    declaracion                    shift and go to state 3
+    declaracion_variable           shift and go to state 4
+    asignacion                     shift and go to state 5
+    estructura_control             shift and go to state 6
+    imprimir                       shift and go to state 7
+    tipo                           shift and go to state 8
+    estructura_si                  shift and go to state 10
+    estructura_mientras            shift and go to state 11
+    estructura_para                shift and go to state 12
+
+state 99
+
+    (25) incremento_para -> IDENTIFICADOR ASIG IDENTIFICADOR . SUMA NUMERO
+    (26) incremento_para -> IDENTIFICADOR ASIG IDENTIFICADOR . RESTA NUMERO
+
+    SUMA            shift and go to state 105
+    RESTA           shift and go to state 106
+
+
+state 100
+
+    (27) incremento_para -> IDENTIFICADOR SUMA SUMA .
+
+    PARDER          reduce using rule 27 (incremento_para -> IDENTIFICADOR SUMA SUMA .)
+
+
+state 101
+
+    (28) incremento_para -> IDENTIFICADOR RESTA RESTA .
+
+    PARDER          reduce using rule 28 (incremento_para -> IDENTIFICADOR RESTA RESTA .)
+
+
+state 102
+
+    (18) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion . PARDER LLAVEIZQ declaraciones LLAVEDER
+    (19) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion . PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+
+    PARDER          shift and go to state 107
+
+
+state 103
+
+    (20) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones . LLAVEDER
+    (2) declaraciones -> declaraciones . declaracion
+    (4) declaracion -> . declaracion_variable
+    (5) declaracion -> . asignacion
+    (6) declaracion -> . estructura_control
+    (7) declaracion -> . imprimir
+    (8) declaracion_variable -> . tipo IDENTIFICADOR ASIG expresion PUNTOCOMA
+    (13) asignacion -> . IDENTIFICADOR ASIG expresion PUNTOCOMA
+    (14) estructura_control -> . estructura_si
+    (15) estructura_control -> . estructura_mientras
+    (16) estructura_control -> . estructura_para
+    (47) imprimir -> . PRINT PARIZQ expresion PARDER PUNTOCOMA
+    (9) tipo -> . TIPO_ENTERO
+    (10) tipo -> . TIPO_DECIMAL
+    (11) tipo -> . TIPO_CARACTER
+    (12) tipo -> . TIPO_BOOLEANO
+    (17) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (18) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (19) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (20) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (21) estructura_mientras -> . MIENTRAS PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (22) estructura_para -> . PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER
+
+    LLAVEDER        shift and go to state 108
+    IDENTIFICADOR   shift and go to state 9
+    PRINT           shift and go to state 13
+    TIPO_ENTERO     shift and go to state 14
+    TIPO_DECIMAL    shift and go to state 15
+    TIPO_CARACTER   shift and go to state 16
+    TIPO_BOOLEANO   shift and go to state 17
+    SI              shift and go to state 18
+    MIENTRAS        shift and go to state 19
+    PARA            shift and go to state 20
+
+    declaracion                    shift and go to state 21
+    declaracion_variable           shift and go to state 4
+    asignacion                     shift and go to state 5
+    estructura_control             shift and go to state 6
+    imprimir                       shift and go to state 7
+    tipo                           shift and go to state 8
+    estructura_si                  shift and go to state 10
+    estructura_mientras            shift and go to state 11
+    estructura_para                shift and go to state 12
+
+state 104
+
+    (22) estructura_para -> PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones . LLAVEDER
+    (2) declaraciones -> declaraciones . declaracion
+    (4) declaracion -> . declaracion_variable
+    (5) declaracion -> . asignacion
+    (6) declaracion -> . estructura_control
+    (7) declaracion -> . imprimir
+    (8) declaracion_variable -> . tipo IDENTIFICADOR ASIG expresion PUNTOCOMA
+    (13) asignacion -> . IDENTIFICADOR ASIG expresion PUNTOCOMA
+    (14) estructura_control -> . estructura_si
+    (15) estructura_control -> . estructura_mientras
+    (16) estructura_control -> . estructura_para
+    (47) imprimir -> . PRINT PARIZQ expresion PARDER PUNTOCOMA
+    (9) tipo -> . TIPO_ENTERO
+    (10) tipo -> . TIPO_DECIMAL
+    (11) tipo -> . TIPO_CARACTER
+    (12) tipo -> . TIPO_BOOLEANO
+    (17) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (18) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (19) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (20) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (21) estructura_mientras -> . MIENTRAS PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (22) estructura_para -> . PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER
+
+    LLAVEDER        shift and go to state 109
+    IDENTIFICADOR   shift and go to state 9
+    PRINT           shift and go to state 13
+    TIPO_ENTERO     shift and go to state 14
+    TIPO_DECIMAL    shift and go to state 15
+    TIPO_CARACTER   shift and go to state 16
+    TIPO_BOOLEANO   shift and go to state 17
+    SI              shift and go to state 18
+    MIENTRAS        shift and go to state 19
+    PARA            shift and go to state 20
+
+    declaracion                    shift and go to state 21
+    declaracion_variable           shift and go to state 4
+    asignacion                     shift and go to state 5
+    estructura_control             shift and go to state 6
+    imprimir                       shift and go to state 7
+    tipo                           shift and go to state 8
+    estructura_si                  shift and go to state 10
+    estructura_mientras            shift and go to state 11
+    estructura_para                shift and go to state 12
+
+state 105
+
+    (25) incremento_para -> IDENTIFICADOR ASIG IDENTIFICADOR SUMA . NUMERO
+
+    NUMERO          shift and go to state 110
+
+
+state 106
+
+    (26) incremento_para -> IDENTIFICADOR ASIG IDENTIFICADOR RESTA . NUMERO
+
+    NUMERO          shift and go to state 111
+
+
+state 107
+
+    (18) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER . LLAVEIZQ declaraciones LLAVEDER
+    (19) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER . LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+
+    LLAVEIZQ        shift and go to state 112
+
+
+state 108
+
+    (20) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER .
+
+    IDENTIFICADOR   reduce using rule 20 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER .)
+    PRINT           reduce using rule 20 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER .)
+    TIPO_ENTERO     reduce using rule 20 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER .)
+    TIPO_DECIMAL    reduce using rule 20 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER .)
+    TIPO_CARACTER   reduce using rule 20 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER .)
+    TIPO_BOOLEANO   reduce using rule 20 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER .)
+    SI              reduce using rule 20 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER .)
+    MIENTRAS        reduce using rule 20 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER .)
+    PARA            reduce using rule 20 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER .)
+    $end            reduce using rule 20 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER .)
+    LLAVEDER        reduce using rule 20 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER .)
+
+
+state 109
+
+    (22) estructura_para -> PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER .
+
+    IDENTIFICADOR   reduce using rule 22 (estructura_para -> PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    PRINT           reduce using rule 22 (estructura_para -> PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    TIPO_ENTERO     reduce using rule 22 (estructura_para -> PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    TIPO_DECIMAL    reduce using rule 22 (estructura_para -> PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    TIPO_CARACTER   reduce using rule 22 (estructura_para -> PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    TIPO_BOOLEANO   reduce using rule 22 (estructura_para -> PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    SI              reduce using rule 22 (estructura_para -> PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    MIENTRAS        reduce using rule 22 (estructura_para -> PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    PARA            reduce using rule 22 (estructura_para -> PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    $end            reduce using rule 22 (estructura_para -> PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    LLAVEDER        reduce using rule 22 (estructura_para -> PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER .)
+
+
+state 110
+
+    (25) incremento_para -> IDENTIFICADOR ASIG IDENTIFICADOR SUMA NUMERO .
+
+    PARDER          reduce using rule 25 (incremento_para -> IDENTIFICADOR ASIG IDENTIFICADOR SUMA NUMERO .)
+
+
+state 111
+
+    (26) incremento_para -> IDENTIFICADOR ASIG IDENTIFICADOR RESTA NUMERO .
+
+    PARDER          reduce using rule 26 (incremento_para -> IDENTIFICADOR ASIG IDENTIFICADOR RESTA NUMERO .)
+
+
+state 112
+
+    (18) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ . declaraciones LLAVEDER
+    (19) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ . declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (2) declaraciones -> . declaraciones declaracion
+    (3) declaraciones -> . declaracion
+    (4) declaracion -> . declaracion_variable
+    (5) declaracion -> . asignacion
+    (6) declaracion -> . estructura_control
+    (7) declaracion -> . imprimir
+    (8) declaracion_variable -> . tipo IDENTIFICADOR ASIG expresion PUNTOCOMA
+    (13) asignacion -> . IDENTIFICADOR ASIG expresion PUNTOCOMA
+    (14) estructura_control -> . estructura_si
+    (15) estructura_control -> . estructura_mientras
+    (16) estructura_control -> . estructura_para
+    (47) imprimir -> . PRINT PARIZQ expresion PARDER PUNTOCOMA
+    (9) tipo -> . TIPO_ENTERO
+    (10) tipo -> . TIPO_DECIMAL
+    (11) tipo -> . TIPO_CARACTER
+    (12) tipo -> . TIPO_BOOLEANO
+    (17) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (18) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (19) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (20) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (21) estructura_mientras -> . MIENTRAS PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (22) estructura_para -> . PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER
+
+    IDENTIFICADOR   shift and go to state 9
+    PRINT           shift and go to state 13
+    TIPO_ENTERO     shift and go to state 14
+    TIPO_DECIMAL    shift and go to state 15
+    TIPO_CARACTER   shift and go to state 16
+    TIPO_BOOLEANO   shift and go to state 17
+    SI              shift and go to state 18
+    MIENTRAS        shift and go to state 19
+    PARA            shift and go to state 20
+
+    declaraciones                  shift and go to state 113
+    declaracion                    shift and go to state 3
+    declaracion_variable           shift and go to state 4
+    asignacion                     shift and go to state 5
+    estructura_control             shift and go to state 6
+    imprimir                       shift and go to state 7
+    tipo                           shift and go to state 8
+    estructura_si                  shift and go to state 10
+    estructura_mientras            shift and go to state 11
+    estructura_para                shift and go to state 12
+
+state 113
+
+    (18) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones . LLAVEDER
+    (19) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones . LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (2) declaraciones -> declaraciones . declaracion
+    (4) declaracion -> . declaracion_variable
+    (5) declaracion -> . asignacion
+    (6) declaracion -> . estructura_control
+    (7) declaracion -> . imprimir
+    (8) declaracion_variable -> . tipo IDENTIFICADOR ASIG expresion PUNTOCOMA
+    (13) asignacion -> . IDENTIFICADOR ASIG expresion PUNTOCOMA
+    (14) estructura_control -> . estructura_si
+    (15) estructura_control -> . estructura_mientras
+    (16) estructura_control -> . estructura_para
+    (47) imprimir -> . PRINT PARIZQ expresion PARDER PUNTOCOMA
+    (9) tipo -> . TIPO_ENTERO
+    (10) tipo -> . TIPO_DECIMAL
+    (11) tipo -> . TIPO_CARACTER
+    (12) tipo -> . TIPO_BOOLEANO
+    (17) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (18) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (19) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (20) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (21) estructura_mientras -> . MIENTRAS PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (22) estructura_para -> . PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER
+
+    LLAVEDER        shift and go to state 114
+    IDENTIFICADOR   shift and go to state 9
+    PRINT           shift and go to state 13
+    TIPO_ENTERO     shift and go to state 14
+    TIPO_DECIMAL    shift and go to state 15
+    TIPO_CARACTER   shift and go to state 16
+    TIPO_BOOLEANO   shift and go to state 17
+    SI              shift and go to state 18
+    MIENTRAS        shift and go to state 19
+    PARA            shift and go to state 20
+
+    declaracion                    shift and go to state 21
+    declaracion_variable           shift and go to state 4
+    asignacion                     shift and go to state 5
+    estructura_control             shift and go to state 6
+    imprimir                       shift and go to state 7
+    tipo                           shift and go to state 8
+    estructura_si                  shift and go to state 10
+    estructura_mientras            shift and go to state 11
+    estructura_para                shift and go to state 12
+
+state 114
+
+    (18) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .
+    (19) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER . EOC LLAVEIZQ declaraciones LLAVEDER
+
+    IDENTIFICADOR   reduce using rule 18 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    PRINT           reduce using rule 18 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    TIPO_ENTERO     reduce using rule 18 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    TIPO_DECIMAL    reduce using rule 18 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    TIPO_CARACTER   reduce using rule 18 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    TIPO_BOOLEANO   reduce using rule 18 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    SI              reduce using rule 18 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    MIENTRAS        reduce using rule 18 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    PARA            reduce using rule 18 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    $end            reduce using rule 18 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    LLAVEDER        reduce using rule 18 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER .)
+    EOC             shift and go to state 115
+
+
+state 115
+
+    (19) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC . LLAVEIZQ declaraciones LLAVEDER
+
+    LLAVEIZQ        shift and go to state 116
+
+
+state 116
+
+    (19) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ . declaraciones LLAVEDER
+    (2) declaraciones -> . declaraciones declaracion
+    (3) declaraciones -> . declaracion
+    (4) declaracion -> . declaracion_variable
+    (5) declaracion -> . asignacion
+    (6) declaracion -> . estructura_control
+    (7) declaracion -> . imprimir
+    (8) declaracion_variable -> . tipo IDENTIFICADOR ASIG expresion PUNTOCOMA
+    (13) asignacion -> . IDENTIFICADOR ASIG expresion PUNTOCOMA
+    (14) estructura_control -> . estructura_si
+    (15) estructura_control -> . estructura_mientras
+    (16) estructura_control -> . estructura_para
+    (47) imprimir -> . PRINT PARIZQ expresion PARDER PUNTOCOMA
+    (9) tipo -> . TIPO_ENTERO
+    (10) tipo -> . TIPO_DECIMAL
+    (11) tipo -> . TIPO_CARACTER
+    (12) tipo -> . TIPO_BOOLEANO
+    (17) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (18) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (19) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (20) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (21) estructura_mientras -> . MIENTRAS PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (22) estructura_para -> . PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER
+
+    IDENTIFICADOR   shift and go to state 9
+    PRINT           shift and go to state 13
+    TIPO_ENTERO     shift and go to state 14
+    TIPO_DECIMAL    shift and go to state 15
+    TIPO_CARACTER   shift and go to state 16
+    TIPO_BOOLEANO   shift and go to state 17
+    SI              shift and go to state 18
+    MIENTRAS        shift and go to state 19
+    PARA            shift and go to state 20
+
+    declaraciones                  shift and go to state 117
+    declaracion                    shift and go to state 3
+    declaracion_variable           shift and go to state 4
+    asignacion                     shift and go to state 5
+    estructura_control             shift and go to state 6
+    imprimir                       shift and go to state 7
+    tipo                           shift and go to state 8
+    estructura_si                  shift and go to state 10
+    estructura_mientras            shift and go to state 11
+    estructura_para                shift and go to state 12
+
+state 117
+
+    (19) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones . LLAVEDER
+    (2) declaraciones -> declaraciones . declaracion
+    (4) declaracion -> . declaracion_variable
+    (5) declaracion -> . asignacion
+    (6) declaracion -> . estructura_control
+    (7) declaracion -> . imprimir
+    (8) declaracion_variable -> . tipo IDENTIFICADOR ASIG expresion PUNTOCOMA
+    (13) asignacion -> . IDENTIFICADOR ASIG expresion PUNTOCOMA
+    (14) estructura_control -> . estructura_si
+    (15) estructura_control -> . estructura_mientras
+    (16) estructura_control -> . estructura_para
+    (47) imprimir -> . PRINT PARIZQ expresion PARDER PUNTOCOMA
+    (9) tipo -> . TIPO_ENTERO
+    (10) tipo -> . TIPO_DECIMAL
+    (11) tipo -> . TIPO_CARACTER
+    (12) tipo -> . TIPO_BOOLEANO
+    (17) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (18) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (19) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (20) estructura_si -> . SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER
+    (21) estructura_mientras -> . MIENTRAS PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER
+    (22) estructura_para -> . PARA PARIZQ inicializacion_para PUNTOCOMA condicion PUNTOCOMA incremento_para PARDER LLAVEIZQ declaraciones LLAVEDER
+
+    LLAVEDER        shift and go to state 118
+    IDENTIFICADOR   shift and go to state 9
+    PRINT           shift and go to state 13
+    TIPO_ENTERO     shift and go to state 14
+    TIPO_DECIMAL    shift and go to state 15
+    TIPO_CARACTER   shift and go to state 16
+    TIPO_BOOLEANO   shift and go to state 17
+    SI              shift and go to state 18
+    MIENTRAS        shift and go to state 19
+    PARA            shift and go to state 20
+
+    declaracion                    shift and go to state 21
+    declaracion_variable           shift and go to state 4
+    asignacion                     shift and go to state 5
+    estructura_control             shift and go to state 6
+    imprimir                       shift and go to state 7
+    tipo                           shift and go to state 8
+    estructura_si                  shift and go to state 10
+    estructura_mientras            shift and go to state 11
+    estructura_para                shift and go to state 12
+
+state 118
+
+    (19) estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER .
+
+    IDENTIFICADOR   reduce using rule 19 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER .)
+    PRINT           reduce using rule 19 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER .)
+    TIPO_ENTERO     reduce using rule 19 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER .)
+    TIPO_DECIMAL    reduce using rule 19 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER .)
+    TIPO_CARACTER   reduce using rule 19 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER .)
+    TIPO_BOOLEANO   reduce using rule 19 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER .)
+    SI              reduce using rule 19 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER .)
+    MIENTRAS        reduce using rule 19 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER .)
+    PARA            reduce using rule 19 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER .)
+    $end            reduce using rule 19 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER .)
+    LLAVEDER        reduce using rule 19 (estructura_si -> SI PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER SINO PARIZQ condicion PARDER LLAVEIZQ declaraciones LLAVEDER EOC LLAVEIZQ declaraciones LLAVEDER .)
+
