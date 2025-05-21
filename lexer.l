@@ -89,3 +89,6 @@ int main(int argc, char **argv) {
     printf("\nAnálisis terminado.\n");
     return 0;
 }
+int yywrap() {
+    return 1;
+}
